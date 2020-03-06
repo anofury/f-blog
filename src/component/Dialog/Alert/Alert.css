@@ -1,0 +1,103 @@
+.alert-container {
+    animation: alert-container .4s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px;
+}
+
+.alert-container.close {
+    pointer-events: none;
+    animation: alert-container-reverse .3s ease-out forwards .1s;
+}
+
+.alert-wrapper {
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 0 10%;
+    min-width: 230px;
+    animation: alert-wrapper .3s ease-out forwards;
+}
+
+.alert-container.close>.alert-wrapper {
+    animation: alert-wrapper-out .15s ease-out forwards .1s;
+}
+
+.alert-wrapper>.content {
+    font-size: 16px;
+    color: #1a1a1a;
+    padding: 20px 30px;
+    text-align: center;
+    transition: all .1s linear;
+}
+
+.alert-wrapper>.content>span {
+    text-align: left;
+    display: inline-block;
+}
+
+.alert-wrapper>.btn {
+    font-size: 14px;
+    color: #FF9900;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    width: 100%;
+    padding: 8px 10px;
+    transition: all .1s linear;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow-x: auto;
+    box-sizing: border-wrapper;
+    position: relative;
+}
+
+.alert-wrapper>.btn:active, .alert-wrapper>.content:active {
+    background-color: #eee;
+}
+
+.alert-wrapper>.btn:active {
+    box-shadow: inset 0 -5px 10px #ddd;
+}
+
+@keyframes alert-container {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        background: rgba(0, 0, 0, .4);
+    }
+}
+
+@keyframes alert-wrapper {
+    from {
+        transform: translateZ(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@keyframes alert-container-reverse {
+    from {
+        background: rgba(0, 0, 0, .4);
+    }
+    to {
+        background: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes alert-wrapper-out {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    to {
+        transform: translate3d(0, 0, -500px);
+        opacity: 0;
+    }
+}

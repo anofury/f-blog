@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="./css/base.css?<%= htmlWebpackPlugin.options.version %>">
+    <style>
+        @font-face {
+            font-family: Muyao-Softbtush;
+            src: url('./font/Muyao-Softbrush.ttf?<%= htmlWebpackPlugin.options.version %>') format('truetype');
+        }
+
+        @font-face {
+            font-family: Yang-Heavy;
+            src: url('./font/Yang-Heavy.ttf?<%= htmlWebpackPlugin.options.version %>') format('truetype');
+        }
+
+        @font-face {
+            font-family: Lai-Hu;
+            src: url('./font/Lai-Hu.ttf?<%= htmlWebpackPlugin.options.version %>') format('truetype');
+        }
+
+        @font-face {
+            font-family: icon;
+            src: url('./font/icon.ttf?<%= htmlWebpackPlugin.options.version %>') format('truetype');
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div style="font-family:Muyao-Softbtush">❤:/~@#$%^&*()_+[]{}\|qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890</div>
+    <div style="font-family:Yang-Heavy">❤:/~@#$%^&*()_+[]{}\|qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890</div>
+    <div style="font-family:Lai-Hu">❤:/~@#$%^&*()_+[]{}\|qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890</div> -->
+    <div id='loading'>
+        <div class="loading-spinner">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <div id='content'></div>
+    <div id="dialog"></div>
+    <script type="application/javascript" src="./js/flexible.js"></script>
+    <!-- <script type="text/javascript" src="./js/socket.io.js"></script> -->
+    <script type='application/javascript' src='./js/base.js?<%= htmlWebpackPlugin.options.version %>'></script>
+    <script type='application/javascript' src='./worker/worker.js?<%= htmlWebpackPlugin.options.version %>'></script>
+    <script type='application/javascript' src='./js/bscroll.min.js'></script>
+    <script type="text/javascript" src="./js/react.min.js"></script>
+    <script type="text/javascript" src="./js/react-dom.min.js"></script>
+    <!-- <script type="application/javascript" src="./js/cursor-effects.js?<%= htmlWebpackPlugin.options.version %>"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+.toast-container {
+    pointer-events: none;
+    z-index: 3!important;
+}
+
+.toast-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 15%;
+    width: 100%;
+    padding: 0 10%;
+    box-sizing: border-box;
+    text-align: center;
+    animation: toast-wrapper-in .5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.toast-container.close>.toast-wrapper {
+    animation: toast-wrapper-out .5s ease-out forwards;
+}
+
+/* .toast-wrapper::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    width: 35px;
+    height: 35px;
+    background: url('./mouth.png') center center no-repeat;
+    background-size: contain;
+    z-index: 1;
+} */
+
+.toast-wrapper>.text {
+    color: #c0392b;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    display: inline-block;
+    word-break: break-all;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, .7);
+    padding: 8px 15px;
+    position: relative;
+}
+
+/* .toast-wrapper>.text::before{
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: -35px;
+    width: 35px;
+    height: 35px;
+    background: url('./game.png') center center no-repeat;
+    background-size: contain;
+    transform: rotateY(180deg)
+}
+
+.toast-wrapper>.text::after{
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: -35px;
+    width: 35px;
+    height: 35px;
+    background: url('./game.png') center center no-repeat;
+    background-size: contain;
+
+} */
+
+@keyframes toast-wrapper-in {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 80px, 0)
+    }
+    40% {
+        opacity: 1;
+        transform: translate3d(0, -8px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes toast-wrapper-out {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}

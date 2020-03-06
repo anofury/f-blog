@@ -1,0 +1,19 @@
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.swiper-wrapper>.slide-item {
+    flex: 1 0 100%;
+    height: 100%;
+    overflow: hidden;
+    word-break: break-all;
+    position: relative;
+    transition: all .2s linear;
+    box-sizing: border-box;
+}
