@@ -14,7 +14,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './page/'),
-        filename: 'js/[name].js'
+        filename: 'js/[name].js',
+        chunkFilename: 'js/[name].js',
     },
     externals: {
         'react': 'React',

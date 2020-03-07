@@ -1,15 +1,14 @@
-import { Fragment, Component } from 'react'
+import { Component, createContext } from 'react'
 import { observer } from 'mobx-react'
 import { Alert, Confirm, Toast } from '../Dialog/Dialog'
 
+const DialogContext = createContext({})
+
 const HOC = WrappedComponent => {
-    return observer(class Index extends Component {
+    return observer(class HOCWrapper extends Component {
         constructor(props) {
             super(props)
-        }
-
-        dialogMethods() {
-            return {
+            this.DialogContext = {
                 alert: Alert.show,
                 confirm: Confirm.show,
                 toast: Toast.show,
@@ -19,12 +18,14 @@ const HOC = WrappedComponent => {
 
         render() {
             return (
-                <Fragment>
-                    <WrappedComponent Dialog={this.dialogMethods()}></WrappedComponent>
-                </Fragment>
+                <DialogContext.Provider value={this.DialogContext}>
+                    <WrappedComponent />
+                </DialogContext.Provider>
             )
         }
     })
 }
 
-export default HOC
+export {
+    HOC, DialogContext
+}

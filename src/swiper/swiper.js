@@ -1,7 +1,7 @@
-import BaseComponent from '../BaseComponent'
+import BaseComponent from '../component/BaseComponent'
 import { observer } from 'mobx-react'
-import { isType, cns } from '../../utils'
-import './Swiper.css'
+import { isType, cns } from '../utils'
+import './swiper.css'
 
 @observer
 export default class Swiper extends BaseComponent {

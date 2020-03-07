@@ -6,15 +6,15 @@ window.setting = {
     TabList: [
         {
             title: '文章',
-            className: 'icon-home'
+            icon: 'icon-home'
         },
         {
             title: '归档',
-            className: 'icon-books'
+            icon: 'icon-books'
         },
         {
-            title: '博主',
-            className: 'icon-user'
+            title: '关于',
+            icon: 'icon-user'
         }
     ]
 }
