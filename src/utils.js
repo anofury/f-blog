@@ -245,7 +245,7 @@ function isMobile() {
     return isAndroid() || isIphone()
 }
 
-export {
+module.exports = {
     dateFormat, isType, cns, preLoadImg, clipTextToBoard,
     sleep, isAndroid, isIphone, isMobile, zfill, isEqual,
 }

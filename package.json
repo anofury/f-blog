@@ -1,15 +1,16 @@
 {
-  "name": "just-love-now",
+  "name": "ano-fury",
   "version": "1.0.0",
-  "description": "after love story, let's just love now",
+  "description": "keep dreaming",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "new": "node article.creator.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anofury/just-love-now.git"
+    "url": "git+https://github.com/anofury/ano-fury.git"
   },
   "keywords": [],
   "author": "'J.Fury' <'anofury@gmail.com'>",
@@ -21,6 +22,7 @@
     "node-fetch": "2.6.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
+    "react-markdown": "4.3.1",
     "socket.io-client": "2.2.0",
     "webpack": "4.29.6",
     "webpack-dev-server": "3.2.1"

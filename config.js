@@ -1,5 +1,5 @@
 window.setting = {
-    // BGIMG: JSON.parse(BGIMGS),
+    Articles: JSON.parse(Articles),
     AlertBtn: '已阅留爪 (ฅ´ω`ฅ)',
     ConfirmLeftBtn: '￢_￢灬呸!',
     ConfirmRightBtn: '父の承認~',

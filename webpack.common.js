@@ -3,9 +3,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// read bckground img dir and return img list
-const { GetBackroundImgConfig } = require('./node.func');
-const BackroundImgDir = { PACK: './public/img/bg/', PAGE: './img/bg/' };
+const articleSrc = { input: './public/article/', output: '/article/' }
+const { getArticleInfo } = require('./article.analyzer');
 
 module.exports = {
     entry: {
@@ -22,6 +21,7 @@ module.exports = {
         'react-dom': 'ReactDOM',
         'socket.io-client': 'io',
         'better-scroll': 'BScroll',
+        'react-markdown': 'ReactMarkdown',
         'setting': 'setting',
         'workerTimer': 'workerTimer'
     },
@@ -73,9 +73,9 @@ module.exports = {
                 ignore: '*/ori/*'
             }
         ]),
-        // new webpack.DefinePlugin({
-        //     BGIMGS: JSON.stringify(GetBackroundImgConfig(BackroundImgDir))
-        // })
+        new webpack.DefinePlugin({
+            Articles: JSON.stringify(getArticleInfo(articleSrc))
+        })
     ],
     resolve: {
         extensions: ['.jsx', '.js', '.json', '.css'],

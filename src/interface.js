@@ -80,4 +80,19 @@ function OKFetch(param, extendParam = {}) {
     })
 }
 
-export { OKFetch, fetchParam }
+
+function getArticle(src) {
+    return new Promise((resolve, reject) => {
+        fetch(src).then(resp => {
+            if (resp.status === 200) {
+                return resp.text()
+            } else reject(resp)
+        }).then((res) => {
+            resolve(res.split(/\r?\n/).slice(7).join('\n'))
+        }).catch(err => {
+            reject(err)
+        })
+    })
+}
+
+export { OKFetch, fetchParam, getArticle }
