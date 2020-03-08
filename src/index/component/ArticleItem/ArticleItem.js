@@ -41,7 +41,9 @@ export default class ArticleItem extends BaseComponent {
                     <p className='title'>{article.title}</p>
                     <p>
                         <span className='date icon-date'>{`发表于 ${dateFormat(article.date, 'YYYY-MM-DD')}`}</span>
-                        <span className='category icon-category'>{`分类 ${article.categories || '无'}`}</span>
+                        <span className='category icon-category'>
+                            {`分类 ${article.categories.length ? article.categories.join('/') : '无'}`}
+                        </span>
                     </p>
                 </div>
                 <ReactMarkdown

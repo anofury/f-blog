@@ -16,7 +16,8 @@ function getArticleInfo(dir) {
                 let splitIndex = line.indexOf(':');
                 articleInfo[line.slice(0, splitIndex)] = line.slice(splitIndex + 1).trim();
             });
-            articleInfo.tags = articleInfo.tags.split(/[,;，；]/).map(e => e.trim());
+            articleInfo.categories = articleInfo.categories.split(/[,;，；]/).map(e => e.trim()).filter(e => e !== '');
+            articleInfo.tags = articleInfo.tags.split(/[,;，；]/).map(e => e.trim()).filter(e => e !== '');
             articleInfo.path = fetchPath;
             Articles.push(articleInfo);
         }
