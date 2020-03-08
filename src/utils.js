@@ -160,8 +160,8 @@ function preLoadImg(imgArr, callback) {
     })
     return new Promise((reslove, reject) => {
         Promise.all(promiseAll).then(
-            () => {
-                reslove()
+            (imgs) => {
+                reslove(imgs)
             }, err => {
                 reject(err)
             }

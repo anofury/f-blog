@@ -1,9 +1,13 @@
+.lazy-loaded {
+    background-color: #eee;
+}
+
 .lazy-img {
-    height: 100%;
+    width: 100%;
     opacity: 0;
     transition: opacity .5s ease;
 }
 
-.lazy-img.show {
+.lazy-loaded .lazy-img {
     opacity: 1;
 }

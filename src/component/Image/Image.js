@@ -1,6 +1,6 @@
 import BaseComponent from '../BaseComponent'
 import { observer } from 'mobx-react'
-import { preLoadImg, cns } from '../../utils'
+import { preLoadImg, cns, sleep } from '../../utils'
 
 import './Image.css'
 
@@ -9,16 +9,17 @@ export default class Image extends BaseComponent {
     constructor(props) {
         super(props)
         this.initData({
-            src: '',
             show: false
         })
     }
 
     componentDidMount() {
-        preLoadImg(this.props.src).then(() => {
-            this.setData({
-                src: this.props.src,
-                show: true
+        preLoadImg(this.props.src).then(Img => {
+            let loadedImg = Img[0]
+            loadedImg.className = 'lazy-img'
+            this.refs.img.appendChild(loadedImg)
+            sleep(50).then(() => {
+                this.setData({ show: true })
             })
         }).catch(err => {
             console.error(this.props.src, err)
@@ -26,9 +27,9 @@ export default class Image extends BaseComponent {
     }
 
     render() {
-        const { show, src } = this.data
+        const { show } = this.data
         return (
-            <img src={src} className={cns('lazy-img', { show: show })} />
+            <div ref='img' className={cns('', { lazyLoaded: show })}></div>
         )
     }
 } 
