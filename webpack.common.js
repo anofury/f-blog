@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const articleSrc = { input: './public/article/', output: '/article/' }
+const articleSrc = { input: './public/articles/', output: '/articles/' }
 const { getArticleInfo } = require('./article.analyzer');
 
 module.exports = {

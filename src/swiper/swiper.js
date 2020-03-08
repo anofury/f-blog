@@ -76,7 +76,8 @@ export default class Swiper extends BaseComponent {
             time: new Date()
         }
         this.moveStatus.state = false
-        if (!e.target.getAttribute('cancel')) {
+        // 如果 touchStart 位置不是代码块 则开启滑动
+        if (!e.target.closest('figure.highlight')) {
             this._activeSlider()
         }
         cancelAnimationFrame(this.moveTimer)

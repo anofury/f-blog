@@ -177,7 +177,7 @@ canvas[resize] {
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    font-family: icon!important;
+    font-family: ano-icon!important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -196,12 +196,12 @@ canvas[resize] {
     content: "\e920";
 }
 
-.icon-qrcode:before {
-    content: "\e938";
-}
-
 .icon-user:before {
     content: "\e971";
+}
+
+.icon-qrcode:before {
+    content: "\e938";
 }
 
 .icon-telegram:before {
@@ -210,6 +210,14 @@ canvas[resize] {
 
 .icon-github:before {
     content: "\eab0";
+}
+
+.icon-date:before {
+    content: "\e953";
+}
+
+.icon-category:before {
+    content: "\e930";
 }
 
 .loading-spinner {

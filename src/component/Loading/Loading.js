@@ -1,5 +1,6 @@
 import BaseComponent from '../BaseComponent'
 import { observer } from 'mobx-react'
+import { cns } from '../../utils'
 
 import './Loading.css'
 
@@ -10,10 +11,11 @@ export default class Loading extends BaseComponent {
     }
 
     render() {
-        console.log('loading')
         return (
-            <div className='ano-loading'>
-                loading
+            <div className={cns('ano-loading', { hidden: this.props.hidden })} style={this.props.style}>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         )
     }

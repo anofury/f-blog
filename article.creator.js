@@ -5,7 +5,7 @@ const argvs = process.argv
 if (argvs.length < 3) console.error('Error: \n请输入文件名.')
 else {
     const title = argvs[2]
-    const fileName = `./public/article/${title}.md`
+    const fileName = `./public/articles/${title}.md`
     const mdHead = `---\ntitle: ${title}\ndescription: ${title}\ndate: ${dateFormat()}\ncategories: \ntags: \n---\n\n# ${title}\n`
 
     fs.exists(fileName, exists => {

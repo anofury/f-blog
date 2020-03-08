@@ -1,0 +1,148 @@
+.article-item {
+    position: absolute;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: .4rem;
+    transition: opacity .3s ease;
+    padding: .4rem;
+}
+
+.article-item:nth-last-child(n+2) {
+    margin-bottom: .3rem;
+}
+
+.article-item.show {
+    position: static;
+    opacity: 1;
+}
+
+.article-header {
+    margin-bottom: .3rem;
+    text-align: center;
+}
+
+.article-header .title {
+    color: #ddd;
+    font-size: .5rem;
+    font-weight: bold;
+    margin-bottom: .1rem;
+    padding: 0 .6rem;
+}
+
+.article-header .date, .article-header .category {
+    font-size: .3rem;
+    margin: 0 .2rem;
+}
+
+.article-header .date:before, .article-header .category:before{
+    margin-right: .1rem;
+    position: relative;
+}
+
+.article-header .date:before{
+    top: 1px;
+}
+
+.article-more {
+    text-align: center;
+}
+
+.article-more>button {
+    color: #aeaeae;
+    font-size: .35rem;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .1);
+    padding: .15rem .5rem .2rem;
+    border-radius: .1rem;
+    transition: background-color .05s ease;
+}
+
+.article-more>button:active {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+/* markdown */
+
+.article-mark h1 {
+    font-size: .5rem;
+    padding: .1rem 0;
+}
+
+.article-mark h2 {
+    font-size: .4rem;
+    padding: .1rem 0;
+}
+
+.article-mark h3 {
+    font-size: .3rem;
+    padding: .1rem 0;
+}
+
+.article-mark p {
+    font-size: .35rem;
+    padding: .2rem 0;
+}
+
+.article-mark ul {
+    padding: .1rem 0;
+}
+
+.article-mark li {
+    padding: .1rem 0;
+}
+
+.article-mark li::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #aeaeae;
+    vertical-align: middle;
+}
+
+.article-mark code {
+    background-color: rgb(29, 31, 33);
+    padding: 2px 3px;
+    border-radius: 4px;
+    color: rgb(218, 208, 133);
+}
+
+.article-mark .highlight code {
+    padding: 0;
+}
+
+.article-mark blockquote {
+    position: relative;
+    padding: 5px 0 5px 15px;
+    word-break: keep-all;
+}
+
+.article-mark blockquote::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: calc(100% - 10px);
+    transform: translateY(-50%);
+    width: 4px;
+    background-color: #aeaeae;
+}
+
+.article-mark img{
+    width: 100%;
+    border-radius: .3rem;
+}
+
+.article-mark table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: .1rem 0;
+}
+
+.article-mark table th, .article-mark table td {
+    border: 1px solid #fff;
+    padding: .2rem;
+}

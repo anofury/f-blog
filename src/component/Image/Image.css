@@ -1,0 +1,9 @@
+.lazy-img {
+    height: 100%;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.lazy-img.show {
+    opacity: 1;
+}

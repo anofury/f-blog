@@ -1,0 +1,48 @@
+.ano-loading {
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: nowrap;
+    padding-top: .8rem;
+    width: 100%;
+    opacity: 1;
+    transition: opacity .3s ease-out;
+    z-index: -1;
+}
+
+.ano-loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ano-loading>span {
+    width: .25rem;
+    height: .25rem;
+    margin: 0 .1rem;
+    border-radius: 50%;
+    background: rgb(211, 244, 255);
+    animation: 0.8s ease-in-out -0.4s infinite alternate none running ano-loading;
+}
+
+.ano-loading>span:nth-child(1) {
+    animation-delay: -.4s;
+}
+
+.ano-loading>span:nth-child(2) {
+    animation-delay: -.2s;
+}
+
+.ano-loading>span:nth-child(3) {
+    animation-delay: 0s;
+}
+
+@keyframes ano-loading {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
