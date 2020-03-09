@@ -248,4 +248,5 @@ function isMobile() {
 module.exports = {
     dateFormat, isType, cns, preLoadImg, clipTextToBoard,
     sleep, isAndroid, isIphone, isMobile, zfill, isEqual,
+    deepCopy,
 }

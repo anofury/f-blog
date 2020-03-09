@@ -25,7 +25,7 @@ export default class Index extends BaseComponent {
     }
 
     render() {
-        const ArticleList = lazy(() => import('./component/ArticleList/ArticleList'))
+        const ArticleList = lazy(() => import('./ArticleList/ArticleList'))
         return (
             <div className='ano-index'>
                 <div className='index-header'>

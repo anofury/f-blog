@@ -1,4 +1,4 @@
-.article-item {
+.article-block {
     position: absolute;
     opacity: 0;
     background-color: rgba(255, 255, 255, .1);
@@ -7,11 +7,11 @@
     padding: .4rem;
 }
 
-.article-item:nth-last-child(n+2) {
+.article-block:nth-last-child(n+2) {
     margin-bottom: .3rem;
 }
 
-.article-item.show {
+.article-block.show {
     position: static;
     opacity: 1;
 }

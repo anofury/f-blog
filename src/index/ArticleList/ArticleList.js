@@ -1,10 +1,12 @@
-import BaseComponent from '../../../component/BaseComponent'
+import BaseComponent from '../../component/BaseComponent'
 import { observer } from 'mobx-react'
-import Loading from '../../../component/Loading/Loading'
-import ArticleItem from '../ArticleItem/ArticleItem'
+import Loading from '../../component/Loading/Loading'
+import ArticleBlock from '../../component/ArticleBlock/ArticleBlock'
 import { Articles } from 'setting'
 
 import './ArticleList.css'
+
+import { BlogContext } from '../../component/Hoc/Hoc'
 
 @observer
 export default class ArticleList extends BaseComponent {
@@ -14,6 +16,8 @@ export default class ArticleList extends BaseComponent {
             hasArticleLoaded: false
         })
     }
+
+    static contextType = BlogContext
 
     onArticleLoaded = () => {
         if (!this.getData.hasArticleLoaded) {
@@ -30,7 +34,9 @@ export default class ArticleList extends BaseComponent {
                 <Loading style={{ position: 'absolute' }} hidden={hasArticleLoaded} />
                 {
                     Articles.map((article, idx) =>
-                        <ArticleItem key={idx} article={article} loaded={this.onArticleLoaded} />
+                        <ArticleBlock key={idx} article={article} showAll={false}
+                            loaded={this.onArticleLoaded} articlePageHandle={this.context.ArticlePage}
+                        />
                     )
                 }
             </div>

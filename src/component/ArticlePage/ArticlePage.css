@@ -1,0 +1,51 @@
+.article-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    transform: translateX(100%);
+    animation: article-page .3s ease forwards;
+}
+
+.article-page .article-block {
+    background-color: #000;
+}
+
+.page-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    background-color: #000;
+    z-index: 1;
+    padding: 0 .3rem;
+    box-shadow: 0 1px 10px 0 #000;
+    display: flex;
+    align-items: center;
+    font-family: Lai-Hu;
+    font-size: .5rem;
+    color: #fff;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-content-BS {
+    padding-top: 1.5rem;
+}
+
+@keyframes article-page {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

@@ -1,7 +1,7 @@
 import BaseComponent from '../component/BaseComponent'
 import { observer } from 'mobx-react'
 import Swiper from '../swiper/swiper'
-import { HOC } from '../component/Hoc/HOC'
+import { HOC } from '../component/Hoc/Hoc'
 import ReactDOM from 'react-dom'
 
 import Index from '../index/index'
