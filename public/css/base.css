@@ -224,6 +224,10 @@ canvas[resize] {
     content: "\e930";
 }
 
+.icon-back:before {
+    content: "\ea40";
+}
+
 .loading-spinner {
     height: 40px;
     opacity: 1;
