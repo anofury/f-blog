@@ -1,4 +1,4 @@
-.article-page {
+.page {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,19 +8,14 @@
     background-color: #000;
     transform: translateX(100%);
     opacity: 1;
-    animation: article-page .4s ease forwards;
+    animation: page .4s ease forwards;
 }
 
-.article-page.close {
-    animation-name: article-page-close;
+.page.close {
+    animation-name: page-close;
 }
 
-.article-page .article-block {
-    background-color: #000;
-    border-radius: 0;
-}
-
-.article-page-header {
+.page>.page-header {
     position: absolute;
     top: 0;
     left: 0;
@@ -36,39 +31,49 @@
     color: #fff;
 }
 
-.article-header-back {
+.page .header-back {
     font-size: .45rem;
     padding: .3rem .5rem .3rem .1rem;
     position: relative;
     top: 2px;
 }
 
-.article-header-note {
+.page .header-title {
     font-size: .4rem;
 }
 
-.article-header-title {
+.page .header-note {
     font-size: .4rem;
     padding-right: .1rem;
     opacity: 0;
     transition: opacity .5s ease;
 }
 
-.article-header-title.show {
+.page .header-note.show {
     opacity: 1;
 }
 
-.article-page-content {
+.page>.page-content {
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.article-page-content-BS {
+.page .page-content-BS {
     padding-top: 1.5rem;
 }
 
-@keyframes article-page {
+.page .iframe{
+    text-align: center;
+    font-size: .5rem;
+    margin-top: 30%;
+}
+
+.page .iframe p{
+    padding: .2rem;
+}
+
+@keyframes page {
     from {
         transform: translateX(100%);
         opacity: 0;
@@ -79,7 +84,7 @@
     }
 }
 
-@keyframes article-page-close {
+@keyframes page-close {
     from {
         transform: translateX(0);
         opacity: 1;

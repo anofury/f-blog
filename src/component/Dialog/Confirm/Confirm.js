@@ -23,6 +23,7 @@ class Confirm extends BaseComponent {
     }
 
     show = (config = {}) => {
+        this.beginTime = new Date()
         this.config = Object.assign({}, this.defaultConfig, config)
         this.setData({ mount: true, unMount: false })
         return new Promise((resolve, reject) => {
@@ -35,10 +36,12 @@ class Confirm extends BaseComponent {
         sleep(this.config.fade).then(() => {
             this.setData({ mount: false, unMount: false })
             this.config = this.defaultConfig
+            delete this.beginTime
         })
     }
 
     _onTapBtn = (type) => {
+        if (!this.beginTime || (new Date() - this.beginTime < 100)) return
         this._close()
         this.clickResolve(type)
     }

@@ -15,7 +15,7 @@
 }
 
 .toast-container.close>.toast-wrapper {
-    animation: toast-wrapper-out .5s ease-out forwards;
+    animation: toast-wrapper-out .5s ease-out backwards;
 }
 
 /* .toast-wrapper::before{

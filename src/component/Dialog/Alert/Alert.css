@@ -8,16 +8,16 @@
 
 .alert-container.close {
     pointer-events: none;
-    animation: alert-container-reverse .3s ease-out forwards .1s;
+    animation: alert-container-reverse .3s ease-out backwards .1s;
 }
 
 .alert-wrapper {
     text-align: center;
-    border-radius: 8px;
+    border-radius: .2rem;
     overflow: hidden;
     background-color: #fff;
     margin: 0 10%;
-    min-width: 230px;
+    min-width: 7rem;
     animation: alert-wrapper .3s ease-out forwards;
 }
 
@@ -26,9 +26,9 @@
 }
 
 .alert-wrapper>.content {
-    font-size: 16px;
+    font-size: .4rem;
     color: #1a1a1a;
-    padding: 20px 30px;
+    padding: .8rem .85rem;
     text-align: center;
     transition: all .1s linear;
 }
@@ -39,13 +39,13 @@
 }
 
 .alert-wrapper>.btn {
-    font-size: 14px;
+    font-size: .4rem;
     color: #FF9900;
     border: none;
     outline: none;
     background-color: #fff;
     width: 100%;
-    padding: 8px 10px;
+    padding: .25rem;
     transition: all .1s linear;
     word-break: keep-all;
     white-space: nowrap;

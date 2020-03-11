@@ -1,0 +1,8 @@
+.markdown-anchor {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.markdown-anchor:active{
+    color: #e74c3c;
+}

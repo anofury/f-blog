@@ -17,6 +17,7 @@
   "license": "'ISC'",
   "dependencies": {
     "better-scroll": "2.0.0-beta.6",
+    "create-react-class": "^15.6.3",
     "mobx": "5.15.1",
     "mobx-react": "6.1.4",
     "node-fetch": "2.6.0",

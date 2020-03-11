@@ -21,7 +21,7 @@
     color: #fff;
 }
 
-.header-user {
+.index-header>.header-user {
     height: 1.2rem;
     width: 1.2rem;
     border-radius: 50%;
@@ -30,19 +30,19 @@
     overflow: hidden;
 }
 
-.header-user>.avatar {
+.index-header>.header-user>.avatar {
     height: 100%;
 }
 
-.header-title {
+.index-header>.header-title {
     font-size: .5rem;
 }
 
-.header-title:hover {
+.index-header>.header-title:hover {
     animation: jello-horizontal 0.9s both;
 }
 
-.header-slogan {
+.index-header>.header-slogan {
     font-size: .3rem;
     width: 1.2rem;
     word-break: keep-all;

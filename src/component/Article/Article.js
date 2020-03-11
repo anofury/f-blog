@@ -2,16 +2,19 @@ import BaseComponent from '../BaseComponent'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react'
 import ReactMarkdown from 'react-markdown'
-import CodeBlock from './CodeBlock'
 import Image from '../Image/Image'
+import Anchor from '../Anchor/Anchor'
+import CodeBlock from '../CodeBlock/CodeBlock'
+import OpenNewPage from '../OpenNewPage/OpenNewPage'
+import { BlogContext } from '../Hoc/Hoc'
 import { getArticle } from '../../interface'
 import { cns, dateFormat, deepCopy } from '../../utils'
 import { ArticleMore } from 'setting'
 
-import './ArticleBlock.css'
+import './Article.css'
 
 @observer
-export default class ArticleBlock extends BaseComponent {
+export default class Article extends BaseComponent {
     constructor(props) {
         super(props)
         this.initData({
@@ -21,16 +24,25 @@ export default class ArticleBlock extends BaseComponent {
         this.oriContent = ''
     }
 
+    static contextType = BlogContext
+
     static propTypes = {
         article: PropTypes.object.isRequired
     }
 
     onTapReadMore = () => {
-        const { article, articlePageHandle } = this.props
-        let articleInfo = Object.assign({}, deepCopy(article), {
+        let articleInfo = Object.assign({}, deepCopy(this.props.article), {
             content: this.oriContent
         })
-        articlePageHandle && articlePageHandle(articleInfo)
+        OpenNewPage.show({
+            title: '文章详细',
+            note: articleInfo.title,
+            component: Article,
+            props: {
+                article: articleInfo,
+                showAll: true
+            }
+        })
     }
 
     loadArticleContent = content => {
@@ -79,7 +91,7 @@ export default class ArticleBlock extends BaseComponent {
                 </div>
                 <ReactMarkdown
                     source={content} className='article-mark'
-                    renderers={{ code: CodeBlock, image: Image }} escapeHtml={false}
+                    renderers={{ code: CodeBlock, image: Image, link: Anchor }} escapeHtml={false}
                 />
                 {
                     showMore &&

@@ -2,3 +2,13 @@
     position: relative;
     padding: .3rem .3rem 1.3rem;
 }
+
+.article-load-more {
+    border: none;
+    outline: none;
+    text-align: center;
+    background-color: transparent;
+    font-size: .5rem;
+    color: #fff;
+    margin-bottom: .3rem;
+}

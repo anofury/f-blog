@@ -1,11 +1,12 @@
 window.setting = {
     Articles: JSON.parse(Articles),
     ArticleMore: '<!-- more -->',
+    ArticleSinglePageNum: 5,
     Title: '小方の博客',
     Slogan: 'Keep\nDreaming',
-    AlertBtn: '已阅留爪 (ฅ´ω`ฅ)',
-    ConfirmLeftBtn: '￢_￢灬呸!',
-    ConfirmRightBtn: '父の承認~',
+    AlertBtn: '我知道了',
+    ConfirmLeftBtn: '不要',
+    ConfirmRightBtn: '好的',
     TabList: [
         {
             title: '文章',

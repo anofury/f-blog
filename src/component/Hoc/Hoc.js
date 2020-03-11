@@ -1,7 +1,6 @@
 import { Component, createContext } from 'react'
 import { observer } from 'mobx-react'
-import ArticlePage from '../ArticlePage/ArticlePage'
-import { Alert, Confirm, Toast } from '../Dialog/Dialog'
+import { Alert, Confirm, Toast } from '../Context'
 
 const BlogContext = createContext({})
 
@@ -15,8 +14,7 @@ const HOC = WrappedComponent => {
                     confirm: Confirm.show,
                     toast: Toast.show,
                     toastClose: Toast.close
-                },
-                ArticlePage: ArticlePage.show
+                }
             }
         }
 

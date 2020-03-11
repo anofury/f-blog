@@ -1,17 +1,23 @@
-import { PureComponent } from "react"
+import BaseComponent from '../BaseComponent'
+import { observer } from 'mobx-react'
 import PropTypes from "prop-types"
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter"
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { jsx, javascript, css, sass, scss } from "react-syntax-highlighter/dist/esm/languages/prism"
 
-export default class CodeBlock extends PureComponent {
+@observer
+export default class CodeBlock extends BaseComponent {
+    constructor(props) {
+        super(props)
+    }
+
     static propTypes = {
         value: PropTypes.string.isRequired,
         language: PropTypes.string
     }
 
     static defaultProps = {
-        language: null
+        language: 'javascript'
     }
 
     componentWillMount() {

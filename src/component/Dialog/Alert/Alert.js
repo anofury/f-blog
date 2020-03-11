@@ -22,6 +22,7 @@ class Alert extends BaseComponent {
     }
 
     show = (config = {}) => {
+        this.beginTime = new Date()
         if (config.text && !isType(config.text, 'array'))
             config.text = [config.text]
         this.config = Object.assign({}, this.defaultConfig, config)
@@ -32,6 +33,7 @@ class Alert extends BaseComponent {
     }
 
     _close = () => {
+        if (!this.beginTime || (new Date() - this.beginTime < 100)) return
         this.setData({ unMount: true })
         sleep(this.config.fade).then(() => {
             this.setData({ mount: false, unMount: false })
