@@ -4,7 +4,7 @@
     position: relative;
 }
 
-.index-header {
+.index-header, .archive-header {
     position: absolute;
     top: 0;
     left: 0;
@@ -34,7 +34,7 @@
     height: 100%;
 }
 
-.index-header>.header-title {
+.index-header>.header-title, .archive-header>.header-title {
     font-size: .5rem;
 }
 

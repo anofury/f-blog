@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import BScroll from 'better-scroll'
 import Image from '../component/Image/Image'
 import Loading from '../component/Loading/Loading'
-import { Title, Slogan } from 'setting'
+import { IndexTitle, Slogan } from 'setting'
 
 import './index.css'
 
@@ -32,7 +32,7 @@ export default class Index extends BaseComponent {
                     <div className='header-user' onClick={() => { this.props.moveToPosition('last') }}>
                         <Image src='./imgs/avatar.jpg' />
                     </div>
-                    <div className='header-title'>{Title}</div>
+                    <div className='header-title'>{IndexTitle}</div>
                     <div className='header-slogan'>{Slogan}</div>
                 </div>
                 <div className='index-body' ref='indexBody'>

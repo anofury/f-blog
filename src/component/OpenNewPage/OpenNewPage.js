@@ -25,6 +25,7 @@ class OpenNewPage extends BaseComponent {
             if (!PageOption.nscroll) {
                 this.pageContentBS = new BScroll(this.refs.pageContent, {
                     click: true,
+                    swipeBounceTime: 200,
                     eventPassthrough: 'horizontal',
                     bounceTime: 400,
                     probeType: 3

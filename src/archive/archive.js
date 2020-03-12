@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import BaseComponent from '../component/BaseComponent'
 import { observer } from 'mobx-react'
 import Loading from '../component/Loading/Loading'
+import { ArchiveIitle } from 'setting'
 
 import './archive.css'
 
@@ -18,7 +19,9 @@ export default class Archive extends BaseComponent {
     render() {
         return (
             <div className='ano-archive'>
-                归档
+                <div className='archive-header'>
+                    <div className='header-title'>{ArchiveIitle}</div>
+                </div>
             </div>
         )
     }
