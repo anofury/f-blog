@@ -4,11 +4,24 @@
 }
 
 .article-load-more {
-    border: none;
-    outline: none;
     text-align: center;
     background-color: transparent;
-    font-size: .5rem;
+    font-size: .4rem;
     color: #fff;
-    margin-bottom: .3rem;
+    margin: .3rem 0;
+    opacity: 0;
+    animation: fade-in .3s ease forwards .3s;
+}
+
+.article-load-more>span {
+    padding: .1rem;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

@@ -45,7 +45,7 @@ export default class ArticleList extends BaseComponent {
         const { hasArticleLoaded, displayFlags } = this.data
         return (
             <div className='article-list'>
-                <Loading style={{ position: 'absolute' }} hidden={hasArticleLoaded} />
+                {/* <Loading style={{ position: 'absolute' }} hidden={hasArticleLoaded} /> */}
                 {
                     Articles.map((article, idx) =>
                         displayFlags[idx] && <Article key={idx} article={article} showAll={false}
@@ -54,8 +54,10 @@ export default class ArticleList extends BaseComponent {
                     )
                 }
                 {
-                    displayFlags.includes(false) &&
-                    <button className='article-load-more' onClick={this.loadMoreArticles}>更多文章</button>
+                    hasArticleLoaded && displayFlags.includes(false) &&
+                    <div className='article-load-more'>
+                        <span onClick={this.loadMoreArticles}>更多</span>
+                    </div>
                 }
             </div>
         )
