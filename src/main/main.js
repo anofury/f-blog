@@ -12,6 +12,7 @@ import { sleep, cns } from '../utils'
 import { TabList } from 'setting'
 import './main.css'
 
+@HOC
 @observer
 class Main extends BaseComponent {
     constructor(props) {
@@ -57,6 +58,6 @@ class Main extends BaseComponent {
     }
 }
 
-const Blog = observer(HOC(Main))
+// const Blog = observer(HOC(Main))
 
-ReactDOM.render(<Blog />, document.querySelector('#content'))
+ReactDOM.render(<Main />, document.querySelector('#content'))

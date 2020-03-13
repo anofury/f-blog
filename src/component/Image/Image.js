@@ -18,9 +18,13 @@ export default class Image extends BaseComponent {
             let loadedImg = Img[0]
             loadedImg.className = 'lazy-img'
             this.refs.img.appendChild(loadedImg)
-            sleep(50).then(() => {
-                this.setData({ show: true })
+
+            let intersectionObserver = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio > 0) {
+                    this.setData({ show: true })
+                }
             })
+            intersectionObserver.observe(loadedImg)
         }).catch(err => {
             console.error(this.props.src, err)
         })
