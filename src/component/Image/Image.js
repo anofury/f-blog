@@ -13,6 +13,8 @@ export default class Image extends BaseComponent {
         })
     }
 
+    // Todo 图片点击全屏 手势放大 旋转
+
     componentDidMount() {
         preLoadImg(this.props.src).then(Img => {
             let loadedImg = Img[0]

@@ -56,7 +56,7 @@ export default class ArticleList extends BaseComponent {
                 {
                     hasArticleLoaded && displayFlags.includes(false) &&
                     <div className='article-load-more'>
-                        <span onClick={this.loadMoreArticles}>更多</span>
+                        <span onClick={this.loadMoreArticles}>︾</span>
                     </div>
                 }
             </div>
