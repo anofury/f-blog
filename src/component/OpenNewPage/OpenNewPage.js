@@ -54,13 +54,22 @@ class OpenNewPage extends BaseComponent {
         })
     }
 
+    onDoubleTapPageHeader = () => {
+        if (!this.pageHeaderFirstTap) this.pageHeaderFirstTap = new Date()
+        else {
+            if (new Date - this.pageHeaderFirstTap < 500)
+                this.pageContentBS && this.pageContentBS.scrollTo(0, 0, 500)
+            delete this.pageHeaderFirstTap
+        }
+    }
+
     render() {
         const { show, close, showNote } = this.data
         const { PageOption } = this
         return (
             show &&
             <div className={cns('page', { close })} >
-                <div className='page-header' ref='pageHead'>
+                <div className='page-header' ref='pageHead' onClick={this.onDoubleTapPageHeader}>
                     <p>
                         <span className='header-back icon-back' onClick={() => { window.history.back() }}></span>
                         <span className='header-title'>{PageOption.title || ''}</span>

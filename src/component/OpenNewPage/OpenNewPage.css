@@ -7,12 +7,11 @@
     height: 100%;
     background-color: #000;
     transform: translateX(100%);
-    opacity: 1;
-    animation: page .4s ease forwards;
+    animation: page .4s ease forwards .2s;
 }
 
 .page.close {
-    animation-name: page-close;
+    animation: page-close .4s ease backwards;
 }
 
 .page>.page-header {
@@ -63,34 +62,30 @@
     padding-top: 1.5rem;
 }
 
-.page .iframe{
+.page .iframe {
     text-align: center;
     font-size: .5rem;
     margin-top: 30%;
 }
 
-.page .iframe p{
+.page .iframe p {
     padding: .2rem;
 }
 
 @keyframes page {
     from {
         transform: translateX(100%);
-        opacity: 0;
     }
     to {
         transform: translateX(0);
-        opacity: 1;
     }
 }
 
 @keyframes page-close {
     from {
         transform: translateX(0);
-        opacity: 1;
     }
     to {
         transform: translateX(100%);
-        opacity: 0;
     }
 }
