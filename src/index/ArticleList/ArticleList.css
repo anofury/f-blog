@@ -18,6 +18,24 @@
     padding: .1rem;
 }
 
+.article-load-more>.no-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fade-in .2s ease forwards;
+}
+
+.article-load-more>.no-more::before, .article-load-more>.no-more::after {
+    content: '';
+    width: 30%;
+    height: 1px;
+    background-color: #aeaeae;
+    margin: 0 5%;
+    transform: scaleY(.5);
+    transform-origin: center center;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;

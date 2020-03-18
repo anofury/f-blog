@@ -6,6 +6,7 @@ import Image from '../Image/Image'
 import Anchor from '../Anchor/Anchor'
 import CodeBlock from '../CodeBlock/CodeBlock'
 import OpenNewPage from '../OpenNewPage/OpenNewPage'
+import { Toast } from '../Context'
 import { BlogContext } from '../Hoc/Hoc'
 import { getArticle } from '../../interface'
 import { cns, dateFormat, deepCopy } from '../../utils'
@@ -19,7 +20,8 @@ export default class Article extends BaseComponent {
         super(props)
         this.initData({
             content: '',
-            showMore: false
+            showMore: false,
+            error: false
         })
         this.oriContent = ''
     }
@@ -70,15 +72,20 @@ export default class Article extends BaseComponent {
             } else {
                 getArticle(articleInfo.path).then(content => {
                     this.loadArticleContent(content)
+                }).catch(err => {
+                    this.setData({ error: true })
+                    this.props.error && this.props.error(articleInfo)
+                    Toast.show({ text: '网络错误.' })
                 })
             }
         }
     }
 
     render() {
-        const { content, showMore } = this.data
+        const { content, showMore, error } = this.data
         const { article } = this.props
         return (
+            !error &&
             <div className={cns('article-block', { show: !!content })}>
                 <div className='article-header'>
                     <p className='title'>{article.title}</p>

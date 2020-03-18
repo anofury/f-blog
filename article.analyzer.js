@@ -1,4 +1,5 @@
 const fs = require('fs');
+const crypto = require('crypto');
 
 function getArticleInfo(dir) {
     // 时间倒序
@@ -12,6 +13,8 @@ function getArticleInfo(dir) {
             let fetchPath = `${dir.output}${articleFileName}`;
             let fileData = fs.readFileSync(readPath, 'utf8');
             let articleHead = fileData.split(/\r?\n/).slice(1, 6), articleInfo = {};
+            let hash = crypto.createHash('sha256');
+            hash.update(fileData);
             articleHead.forEach(line => {
                 let splitIndex = line.indexOf(':');
                 articleInfo[line.slice(0, splitIndex)] = line.slice(splitIndex + 1).trim();
@@ -19,6 +22,7 @@ function getArticleInfo(dir) {
             articleInfo.categories = articleInfo.categories.split(/[,;，；]/).map(e => e.trim()).filter(e => e !== '');
             articleInfo.tags = articleInfo.tags.split(/[,;，；]/).map(e => e.trim()).filter(e => e !== '');
             articleInfo.path = fetchPath;
+            articleInfo.hash = hash.digest('hex');
             Articles.push(articleInfo);
         }
     })
