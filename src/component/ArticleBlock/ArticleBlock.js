@@ -3,25 +3,26 @@ import PropTypes from 'prop-types'
 import { observer } from 'mobx-react'
 import ReactMarkdown from 'react-markdown'
 import Image from '../Image/Image'
-import Anchor from '../Anchor/Anchor'
-import CodeBlock from '../CodeBlock/CodeBlock'
+import ArticleAnchor from '../ArticleAnchor/ArticleAnchor'
+import ArticleCode from '../ArticleCode/ArticleCode'
 import OpenNewPage from '../OpenNewPage/OpenNewPage'
 import { Toast } from '../Context'
 import { BlogContext } from '../Hoc/Hoc'
 import { getArticle } from '../../interface'
-import { cns, dateFormat, deepCopy } from '../../utils'
-import { ArticleMore } from 'setting'
+import { cns, dateFormat, deepCopy, sleep } from '../../utils'
+import { ArticleMore, NetError } from 'setting'
 
-import './Article.css'
+import './ArticleBlock.css'
 
 @observer
-export default class Article extends BaseComponent {
+export default class ArticleBlock extends BaseComponent {
     constructor(props) {
         super(props)
         this.initData({
             content: '',
             showMore: false,
-            error: false
+            error: false,
+            tapShowMore: false
         })
         this.oriContent = ''
     }
@@ -33,13 +34,17 @@ export default class Article extends BaseComponent {
     }
 
     onTapReadMore = () => {
+        this.setData({ tapShowMore: true })
+        sleep(200).then(() => {
+            this.setData({ tapShowMore: false })
+        })
         let articleInfo = Object.assign({}, deepCopy(this.props.article), {
             content: this.oriContent
         })
         OpenNewPage.show({
             title: '文章详细',
             note: articleInfo.title,
-            component: Article,
+            component: ArticleBlock,
             props: {
                 article: articleInfo,
                 showAll: true
@@ -75,14 +80,14 @@ export default class Article extends BaseComponent {
                 }).catch(err => {
                     this.setData({ error: true })
                     this.props.error && this.props.error(articleInfo)
-                    Toast.show({ text: '网络错误.' })
+                    Toast.show({ text: NetError })
                 })
             }
         }
     }
 
     render() {
-        const { content, showMore, error } = this.data
+        const { content, showMore, error, tapShowMore } = this.data
         const { article } = this.props
         return (
             !error &&
@@ -98,12 +103,12 @@ export default class Article extends BaseComponent {
                 </div>
                 <ReactMarkdown
                     source={content} className='article-mark'
-                    renderers={{ code: CodeBlock, image: Image, link: Anchor }} escapeHtml={false}
+                    renderers={{ code: ArticleCode, image: Image, link: ArticleAnchor }} escapeHtml={false}
                 />
                 {
                     showMore &&
                     <div className='article-more'>
-                        <button onClick={this.onTapReadMore}>阅读全文 »</button>
+                        <button onClick={this.onTapReadMore} className={cns('', { tap: tapShowMore })}>阅读全文 »</button>
                     </div>
                 }
             </div>

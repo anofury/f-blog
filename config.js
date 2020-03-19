@@ -5,6 +5,7 @@ window.setting = {
     IndexTitle: '小方の博客',
     ArchiveIitle: '文章の归档',
     Slogan: 'Keep\nDreaming',
+    NetError: '网络错误.',
     AlertBtn: '我知道了',
     ConfirmLeftBtn: '不要',
     ConfirmRightBtn: '好的',

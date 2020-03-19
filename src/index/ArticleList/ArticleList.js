@@ -1,7 +1,7 @@
 import BaseComponent from '../../component/BaseComponent'
 import { observer } from 'mobx-react'
 import Loading from '../../component/Loading/Loading'
-import Article from '../../component/Article/Article'
+import ArticleBlock from '../../component/ArticleBlock/ArticleBlock'
 import { sleep } from '../../utils'
 import { Articles, ArticleSinglePageNum } from 'setting'
 
@@ -66,7 +66,7 @@ export default class ArticleList extends BaseComponent {
             <div className='article-list'>
                 {
                     Articles.map((article, idx) =>
-                        displayFlags[idx] && <Article key={idx} article={article} showAll={false}
+                        displayFlags[idx] && <ArticleBlock key={idx} article={article} showAll={false}
                             loaded={this.onArticleLoaded} error={this.onArticleLoadError}
                         />
                     )

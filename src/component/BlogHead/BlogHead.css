@@ -1,0 +1,68 @@
+.blog-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    background-color: #000;
+    z-index: 1;
+    padding: 0 .3rem;
+    box-shadow: 0 1px 10px 0 #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Lai-Hu;
+    color: #fff;
+}
+
+.blog-head.only-title {
+    justify-content: center;
+}
+
+.blog-head>.head-user {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    background-color: #eee;
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.blog-head>.head-title {
+    font-size: .5rem;
+}
+
+/* .blog-head>.head-title:hover {
+    animation: jello-horizontal 0.9s both;
+} */
+
+.blog-head>.head-slogan {
+    font-size: .3rem;
+    width: 1.2rem;
+    word-break: keep-all;
+    text-align: right;
+}
+
+@keyframes jello-horizontal {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}

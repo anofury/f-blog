@@ -60,10 +60,10 @@
     background-color: #333;
     padding: .15rem .5rem .2rem;
     border-radius: .1rem;
-    transition: all .2s linear;
+    transition: all .1s linear;
 }
 
-.article-more>button:active {
+.article-more>button.tap {
     background-color: #555;
 }
 
@@ -112,7 +112,7 @@
     background-color: rgb(29, 31, 33);
     padding: 2px 3px;
     border-radius: 4px;
-    color: rgb(218, 208, 133);
+    /* color: rgb(168, 255, 96); */
 }
 
 .article-mark .highlight code {

@@ -30,6 +30,7 @@
     padding: .8rem .85rem;
     text-align: center;
     transition: all .1s linear;
+    overflow-x: auto;
 }
 
 
@@ -58,7 +59,7 @@
     outline: none;
     background-color: transparent;
     width: 50%;
-    padding: .25rem;
+    padding: .22rem;
     box-sizing: border-box;
     word-break: keep-all;
     white-space: nowrap;

@@ -6,10 +6,10 @@ import PropTypes from "prop-types"
 import OpenNewPage from '../OpenNewPage/OpenNewPage'
 import { clipTextToBoard } from '../../utils'
 
-import './Anchor.css'
+import './ArticleAnchor.css'
 
 @observer
-export default class Anchor extends BaseComponent {
+export default class ArticleAnchor extends BaseComponent {
     constructor(props) {
         super(props)
     }
