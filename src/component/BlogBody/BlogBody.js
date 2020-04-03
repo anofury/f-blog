@@ -8,7 +8,7 @@ import './BlogBody.css'
 export default class BlogBody extends BaseComponent {
     constructor(props) {
         super(props)
-        this.BlogBodyId = `blogBody${new Date().getTime()}`
+        this.BlogBodyId = `blogBody-${Math.floor(Math.random() * 100000)}`
     }
 
     componentDidMount() {

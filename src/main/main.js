@@ -8,7 +8,7 @@ import Index from '../index/index'
 import Archive from '../archive/archive'
 import About from '../about/about'
 
-import { sleep, cns } from '../utils'
+import { sleep, cns, getUrlSearchParam } from '../utils'
 import { TabList } from 'setting'
 import './main.css'
 
@@ -19,7 +19,7 @@ class Main extends BaseComponent {
         super(props)
         this.initData({
             showPage: false,
-            tabIndex: 0
+            tabIndex: getUrlSearchParam('tab')
         })
     }
 

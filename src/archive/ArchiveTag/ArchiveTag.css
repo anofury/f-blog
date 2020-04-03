@@ -1,0 +1,16 @@
+.archive-item {
+    font-size: .3rem;
+    padding: .2rem .4rem;
+    margin: .1rem;
+    border-radius: .4rem;
+    color: #fff;
+    transition: opacity .1s ease;
+}
+
+.archive-item>span:first-child {
+    margin-right: .1rem;
+}
+
+.archive-item:active {
+    opacity: .5;
+}

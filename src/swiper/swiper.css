@@ -17,3 +17,9 @@
     transition: all .2s linear;
     box-sizing: border-box;
 }
+
+.swiper-wrapper>.slide-item>div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}

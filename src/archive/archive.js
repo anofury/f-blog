@@ -2,7 +2,9 @@ import BaseComponent from '../component/BaseComponent'
 import { observer } from 'mobx-react'
 import BlogHead from '../component/BlogHead/BlogHead'
 import BlogBody from '../component/BlogBody/BlogBody'
-import { ArchiveIitle, Articles } from 'setting'
+import ArchiveBlock from './ArchiveBlock/ArchiveBlock'
+import { ArchiveTitle, Articles } from 'setting'
+import { zfill } from '../utils'
 
 import './archive.css'
 
@@ -10,11 +12,11 @@ import './archive.css'
 export default class Archive extends BaseComponent {
     constructor(props) {
         super(props)
-        this.archive = { withTag: { noTag: [] }, withCategory: { noCategory: [] } }
-    }
-
-    swiperChangeHandle(current) {
-        // console.log('archive swiperChangeHandle', current)
+        this.archive = {
+            withTag: { 无标签: [] },
+            withCategory: { 无分类: [] },
+            withDate: {}
+        }
     }
 
     componentWillMount() {
@@ -25,7 +27,7 @@ export default class Archive extends BaseComponent {
                 else this.archive.withTag[tagItem] = [articleItem]
             })
             if (!articleItem.tags.length) {
-                this.archive.withTag.noTag.push(articleItem)
+                this.archive.withTag.无标签.push(articleItem)
             }
 
             articleItem.categories.forEach(categoryItem => {
@@ -34,17 +36,27 @@ export default class Archive extends BaseComponent {
                 else this.archive.withCategory[categoryItem] = [articleItem]
             })
             if (!articleItem.categories.length) {
-                this.archive.withCategory.noCategory.push(articleItem)
+                this.archive.withCategory.无分类.push(articleItem)
             }
+
+            let date = new Date(articleItem.date)
+            let withDateKey = `${date.getFullYear()} 年 ${zfill(date.getMonth() + 1)} 月`
+            if (this.archive.withDate[withDateKey])
+                this.archive.withDate[withDateKey].push(articleItem)
+            else this.archive.withDate[withDateKey] = [articleItem]
         })
+        console.log(this.archive)
     }
 
     render() {
+
         return (
             <div className='blog-archive'>
-                <BlogHead title={ArchiveIitle} />
+                <BlogHead title={ArchiveTitle} />
                 <BlogBody>
-                    <div className></div>
+                    <ArchiveBlock title='按标签' data={this.archive.withTag} />
+                    <ArchiveBlock title='按分类' data={this.archive.withCategory} />
+                    <ArchiveBlock title='按日期' data={this.archive.withDate} />
                 </BlogBody>
             </div>
         )

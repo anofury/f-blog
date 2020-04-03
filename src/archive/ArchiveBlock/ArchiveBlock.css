@@ -1,0 +1,15 @@
+.archive-block {
+    margin: .3rem;
+}
+
+.archive-title {
+    font-size: .55rem;
+    font-family: Lai-Hu;
+    margin: 0 .1rem .3rem;
+}
+
+.archive-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}

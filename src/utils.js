@@ -245,8 +245,15 @@ function isMobile() {
     return isAndroid() || isIphone()
 }
 
+function getUrlSearchParam(key) {
+    let url = window.location.href
+    let keyReg = new RegExp(`[\\?\\&]${key}=(\\w+)\\&?`)
+    let result = url.match(keyReg)
+    return result ? parseInt(result[1]) : 0
+}
+
 module.exports = {
     dateFormat, isType, cns, preLoadImg, clipTextToBoard,
     sleep, isAndroid, isIphone, isMobile, zfill, isEqual,
-    deepCopy,
+    deepCopy, getUrlSearchParam,
 }
