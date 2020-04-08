@@ -4,6 +4,7 @@ window.setting = {
     ArticleSinglePageNum: 5,
     IndexTitle: '小方の博客',
     ArchiveTitle: '文章の归档',
+    AboutTitle: '关于我',
     Slogan: 'Keep\nDreaming',
     NetError: '网络错误.',
     AlertBtn: '我知道了',

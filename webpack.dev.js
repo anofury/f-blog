@@ -7,7 +7,7 @@ module.exports = merge(common, {
     mode: "development",
     devServer: {
         contentBase: path.resolve(__dirname, './page'),
-        host: '172.28.223.107',
+        host: '192.168.145.108',
         port: '3333',
         inline: true,
         watchOptions: {

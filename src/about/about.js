@@ -2,6 +2,9 @@ import { lazy, Suspense } from 'react'
 import BaseComponent from '../component/BaseComponent'
 import { observer } from 'mobx-react'
 import Loading from '../component/Loading/Loading'
+import BlogHead from '../component/BlogHead/BlogHead'
+import BlogBody from '../component/BlogBody/BlogBody'
+import { AboutTitle } from 'setting'
 
 import './about.css'
 
@@ -11,14 +14,10 @@ export default class About extends BaseComponent {
         super(props)
     }
 
-    swiperChangeHandle(current) {
-        console.log('about swiperChangeHandle', current)
-    }
-
     render() {
         return (
-            <div className='ano-about'>
-                关于
+            <div className='blog-about'>
+                <BlogHead title={AboutTitle} />
             </div>
         )
     }

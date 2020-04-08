@@ -1,11 +1,12 @@
 .archive-block {
-    margin: .3rem;
+    margin: .4rem;
 }
 
 .archive-title {
-    font-size: .55rem;
+    font-size: .5rem;
     font-family: Lai-Hu;
-    margin: 0 .1rem .3rem;
+    margin-bottom: .3rem;
+    color: #ddd;
 }
 
 .archive-group {

@@ -54,9 +54,9 @@ export default class Archive extends BaseComponent {
             <div className='blog-archive'>
                 <BlogHead title={ArchiveTitle} />
                 <BlogBody>
-                    <ArchiveBlock title='按标签' data={this.archive.withTag} />
-                    <ArchiveBlock title='按分类' data={this.archive.withCategory} />
                     <ArchiveBlock title='按日期' data={this.archive.withDate} />
+                    <ArchiveBlock title='按分类' data={this.archive.withCategory} />
+                    <ArchiveBlock title='按标签' data={this.archive.withTag} />
                 </BlogBody>
             </div>
         )
