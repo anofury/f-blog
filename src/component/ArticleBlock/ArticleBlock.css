@@ -60,10 +60,9 @@
     background-color: #333;
     padding: .15rem .5rem .2rem;
     border-radius: .1rem;
-    transition: all .1s ease;
 }
 
-.article-more>span:active {
+.article-more>span.active {
     background-color: #555;
 }
 

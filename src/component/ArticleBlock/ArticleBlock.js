@@ -21,7 +21,8 @@ export default class ArticleBlock extends BaseComponent {
         this.initData({
             content: '',
             showMore: false,
-            error: false
+            error: false,
+            clickMore: false,
         })
         this.oriContent = ''
     }
@@ -33,6 +34,10 @@ export default class ArticleBlock extends BaseComponent {
     }
 
     onTapReadMore = () => {
+        this.setData({ clickMore: true })
+        sleep(800).then(() => {
+            this.setData({ clickMore: false })
+        })
         let articleInfo = Object.assign({}, deepCopy(this.props.article), {
             content: this.oriContent
         })
@@ -82,7 +87,7 @@ export default class ArticleBlock extends BaseComponent {
     }
 
     render() {
-        const { content, showMore, error } = this.data
+        const { content, showMore, error, clickMore } = this.data
         const { article } = this.props
         return (
             !error &&
@@ -103,7 +108,7 @@ export default class ArticleBlock extends BaseComponent {
                 {
                     showMore &&
                     <div className='article-more'>
-                        <span onClick={this.onTapReadMore}>阅读全文 »</span>
+                        <span onClick={this.onTapReadMore} className={cns('', { active: clickMore})}>阅读全文 »</span>
                     </div>
                 }
             </div>
