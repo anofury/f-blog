@@ -1,8 +1,10 @@
+import { Fragment } from 'react'
 import BaseComponent from '../BaseComponent'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react'
 import ReactMarkdown from 'react-markdown'
 import Image from '../Image/Image'
+import Loading from '../Loading/Loading'
 import ArticleAnchor from '../ArticleAnchor/ArticleAnchor'
 import ArticleCode from '../ArticleCode/ArticleCode'
 import OpenNewPage from '../OpenNewPage/OpenNewPage'
@@ -94,30 +96,32 @@ export default class ArticleBlock extends BaseComponent {
 
     render() {
         const { content, error, clickMore, showMore } = this.data
-        const { article } = this.props
+        const { article, delay } = this.props
         return (
-            !error &&
-            <div className={cns('article-block', { show: !!content })}>
-                <div className='article-header'>
-                    <p className='title'>{article.title}</p>
-                    <p>
-                        <span className='date icon-date'>{`发表于 ${dateFormat(article.date, 'YYYY-MM-DD')}`}</span>
-                        <span className='category icon-category'>
-                            {`分类 ${article.categories.length ? article.categories.join('/') : '无'}`}
-                        </span>
-                    </p>
-                </div>
-                <ReactMarkdown
-                    source={content} className='article-mark'
-                    renderers={{ code: ArticleCode, image: Image, link: ArticleAnchor }} escapeHtml={false}
-                />
-                {
-                    showMore &&
-                    <div className='article-more'>
-                        <span onClick={this.onTapReadMore} className={cns('', { active: clickMore })}>阅读全文 »</span>
+            !error && <Fragment>
+                {delay && !content && <Loading />}
+                <div className={cns('article-block', { show: !!content })}>
+                    <div className='article-header'>
+                        <p className='title'>{article.title}</p>
+                        <p>
+                            <span className='date icon-date'>{`发表于 ${dateFormat(article.date, 'YYYY-MM-DD')}`}</span>
+                            <span className='category icon-category'>
+                                {`分类 ${article.categories.length ? article.categories.join('/') : '无'}`}
+                            </span>
+                        </p>
                     </div>
-                }
-            </div>
+                    <ReactMarkdown
+                        source={content} className='article-mark'
+                        renderers={{ code: ArticleCode, image: Image, link: ArticleAnchor }} escapeHtml={false}
+                    />
+                    {
+                        showMore &&
+                        <div className='article-more'>
+                            <span onClick={this.onTapReadMore} className={cns('', { active: clickMore })}>阅读全文 »</span>
+                        </div>
+                    }
+                </div>
+            </Fragment>
         )
     }
 }
