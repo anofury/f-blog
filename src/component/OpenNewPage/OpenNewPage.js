@@ -11,32 +11,27 @@ class OpenNewPage extends BaseComponent {
     constructor(props) {
         super(props)
         this.initData({
-            show: false,
-            close: false,
-            showNote: false,
+            pageArray: []
         })
-        this.PageOption = {}
+        this.pageContentBS = {}
     }
 
 
     show = PageOption => {
-        this.PageOption = PageOption
-        this.setData({ show: true, close: false, showNote: false }, () => {
-            if (!PageOption.nscroll) {
-                this.pageContentBS = new BScroll(this.refs.pageContent, {
+        let pageArrayTmp = this.getData.pageArray
+        pageArrayTmp.push(PageOption)
+        this.setData({ pageArray: pageArrayTmp, [`close_${pageArrayTmp.length - 1}`]: false }, () => {
+            this.pageContentBS[`pageContent-${pageArrayTmp.length - 1}`] =
+                new BScroll(this.refs[`pageContent-${pageArrayTmp.length - 1}`], {
                     click: true,
                     swipeBounceTime: 200,
                     eventPassthrough: 'horizontal',
                     bounceTime: 400,
                     probeType: 3
                 })
-                this.pageContentBS.on('scroll', pos => {
-                    if (pos.y < -this.refs.pageHead.offsetHeight) {
-                        this.setData({ showNote: true })
-                    } else this.setData({ showNote: false })
-                })
-            }
         })
+
+
         let pushStateState = {
             title: PageOption.title, url: `#/page_note=${PageOption.note}`
         }
@@ -45,11 +40,19 @@ class OpenNewPage extends BaseComponent {
     }
 
     close = () => {
-        window.removeEventListener("popstate", this.close, false)
-        this.setData({ close: true }, () => {
+        if (this.getData.pageArray.length === 1)
+            window.removeEventListener("popstate", this.close, false)
+        this.setData({ [`close_${this.getData.pageArray.length - 1}`]: true }, () => {
             sleep(400).then(() => {
-                this.setData({ show: false, close: false, showNote: false })
-                this.pageContentBS && this.pageContentBS.destroy()
+                let pageArrayTmp = this.getData.pageArray,
+                    pageContentBS = this.pageContentBS[`pageContent-${pageArrayTmp.length - 1}`]
+
+                pageArrayTmp.pop()
+                this.setData({
+                    pageArray: pageArrayTmp
+                }, () => {
+                    pageContentBS && pageContentBS.destroy()
+                })
             })
         })
     }
@@ -57,37 +60,33 @@ class OpenNewPage extends BaseComponent {
     onDoubleTapPageHeader = () => {
         if (!this.pageHeaderFirstTap) this.pageHeaderFirstTap = new Date()
         else {
-            if (new Date - this.pageHeaderFirstTap < 500)
-                this.pageContentBS && this.pageContentBS.scrollTo(0, 0, 500)
+            if (new Date - this.pageHeaderFirstTap < 500) {
+                let pageContentBS = this.pageContentBS[`pageContent-${this.getData.pageArray.length - 1}`]
+                pageContentBS && pageContentBS.scrollTo(0, 0, 500)
+            }
             delete this.pageHeaderFirstTap
         }
     }
 
     render() {
-        const { show, close, showNote } = this.data
-        const { PageOption } = this
+        const { pageArray } = this.data
         return (
-            show &&
-            <div className={cns('page', { close })} >
-                <div className='page-header' ref='pageHead' onClick={this.onDoubleTapPageHeader}>
-                    <p>
-                        <span className='header-back icon-back' onClick={() => { window.history.back() }}></span>
-                        <span className='header-title'>{PageOption.title || ''}</span>
-                    </p>
-                    <span className={cns('header-note', { show: showNote })}>{PageOption.note || ''}</span>
-                </div>
-                {
-                    PageOption.nscroll ?
-                        <div className='page-content'>
-                            <PageOption.component {...PageOption.props} />
+            pageArray.map((pageItem, pageIndex) =>
+                <div className={cns('page', { close: this.getData[`close_${pageIndex}`] })} id={`page-${pageIndex}`}>
+                    <div className='page-header' ref='pageHead' onTouchStart={this.onDoubleTapPageHeader}>
+                        <p>
+                            <span className='header-back icon-back' onClick={() => { window.history.back() }}></span>
+                            <span className='header-title'>{pageItem.title || '无标题'}</span>
+                        </p>
+                        <span className='header-note'>{pageItem.note || '无标题'}</span>
+                    </div>
+                    <div className='page-content' ref={`pageContent-${pageIndex}`}>
+                        <div className='page-content-BS'>
+                            <pageItem.component {...pageItem.props} />
                         </div>
-                        : <div className='page-content' ref='pageContent'>
-                            <div className='page-content-BS'>
-                                <PageOption.component {...PageOption.props} />
-                            </div>
-                        </div>
-                }
-            </div>
+                    </div>
+                </div >
+            )
         )
     }
 }

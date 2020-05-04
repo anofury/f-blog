@@ -1,0 +1,33 @@
+.archive-article-list {
+    padding: .4rem;
+}
+
+.archive-article-item {
+    margin: .3rem 0;
+    padding: .2rem .3rem;
+    border-radius: .3rem;
+    background-color: rgba(255, 255, 255, .1);
+    transition: all .2s ease;
+}
+
+.archive-article-item:active {
+    background-color: rgba(255, 255, 255, .2);
+    transform: scale(.95);
+    transform-origin: center center;
+}
+
+.archive-article-item-td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .35rem;
+}
+
+.archive-article-item-ds {
+    font-size: .45rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: keep-all;
+    margin-top: .1rem;
+}

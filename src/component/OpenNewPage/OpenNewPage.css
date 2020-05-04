@@ -44,12 +44,6 @@
 .page .header-note {
     font-size: .4rem;
     padding-right: .1rem;
-    opacity: 0;
-    transition: opacity .5s ease;
-}
-
-.page .header-note.show {
-    opacity: 1;
 }
 
 .page>.page-content {

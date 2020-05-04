@@ -38,7 +38,7 @@
 
 .blog-head>.head-slogan {
     font-size: .3rem;
-    width: 1.2rem;
+    /* width: 1.2rem; */
     word-break: keep-all;
     text-align: right;
 }

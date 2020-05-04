@@ -20,8 +20,8 @@ export default class ArticleBlock extends BaseComponent {
         super(props)
         this.initData({
             content: '',
-            showMore: false,
             error: false,
+            showMore: false,
             clickMore: false,
         })
         this.oriContent = ''
@@ -47,7 +47,8 @@ export default class ArticleBlock extends BaseComponent {
             component: ArticleBlock,
             props: {
                 article: articleInfo,
-                showAll: true
+                showAll: true,
+                delay: true
             }
         })
     }
@@ -66,7 +67,12 @@ export default class ArticleBlock extends BaseComponent {
         }
         this.props.loaded && this.props.loaded()
         this.oriContent = content
-        this.setData({ content: newContent, showMore })
+
+        if (this.props.delay)
+            sleep(800).then(() => {
+                this.setData({ content: newContent, showMore })
+            })
+        else this.setData({ content: newContent, showMore })
     }
 
     componentWillMount() {
@@ -87,7 +93,7 @@ export default class ArticleBlock extends BaseComponent {
     }
 
     render() {
-        const { content, showMore, error, clickMore } = this.data
+        const { content, error, clickMore, showMore } = this.data
         const { article } = this.props
         return (
             !error &&
@@ -108,7 +114,7 @@ export default class ArticleBlock extends BaseComponent {
                 {
                     showMore &&
                     <div className='article-more'>
-                        <span onClick={this.onTapReadMore} className={cns('', { active: clickMore})}>阅读全文 »</span>
+                        <span onClick={this.onTapReadMore} className={cns('', { active: clickMore })}>阅读全文 »</span>
                     </div>
                 }
             </div>

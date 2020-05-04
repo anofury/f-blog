@@ -1,7 +1,7 @@
 import BaseComponent from '../../component/BaseComponent'
 import { observer } from 'mobx-react'
 import OpenNewPage from '../../component/OpenNewPage/OpenNewPage'
-import ArticleBlock from '../../component/ArticleBlock/ArticleBlock'
+import ArchiveBlockList from '../ArchiveBlockList/ArchiveBlockList'
 import './ArchiveTag.css'
 
 @observer
@@ -31,16 +31,15 @@ export default class ArchiveTag extends BaseComponent {
 
     onTapTagItem = () => {
         console.log(this.props)
-        // let articleInfo = this.props.article[0]
-        // OpenNewPage.show({
-        //     title: '文章详细',
-        //     note: articleInfo.title,
-        //     component: ArticleBlock,
-        //     props: {
-        //         article: articleInfo,
-        //         showAll: true
-        //     }
-        // })
+        let articleInfo = this.props
+        OpenNewPage.show({
+            title: articleInfo.from,
+            note: articleInfo.title,
+            component: ArchiveBlockList,
+            props: {
+                article: articleInfo.article
+            }
+        })
     }
 
     render() {

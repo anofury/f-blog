@@ -31,7 +31,7 @@ export default class BlogHead extends BaseComponent {
                 }
                 <div className='head-title'>{title || 'Title'}</div>
                 {
-                    slogan && <div className='head-slogan'>{slogan}</div>
+                    slogan && <div className='head-slogan' dangerouslySetInnerHTML={{ __html: slogan.replace('\n', '<br/>') }} />
                 }
             </div>
         )
