@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 import OpenNewPage from '../../component/OpenNewPage/OpenNewPage'
 import ArchiveBlockList from '../ArchiveBlockList/ArchiveBlockList'
 import './ArchiveTag.css'
+import { Toast } from '../../component/Context'
 
 @observer
 export default class ArchiveTag extends BaseComponent {
@@ -31,14 +32,17 @@ export default class ArchiveTag extends BaseComponent {
 
     onTapTagItem = () => {
         let articleInfo = this.props
-        OpenNewPage.show({
-            title: articleInfo.from,
-            note: articleInfo.title,
-            component: ArchiveBlockList,
-            props: {
-                article: articleInfo.article
-            }
-        })
+        if (articleInfo.article && !articleInfo.article.length)
+            Toast.show({ text: '这个栏目下没有文章哦.' })
+        else
+            OpenNewPage.show({
+                title: articleInfo.from,
+                note: articleInfo.title,
+                component: ArchiveBlockList,
+                props: {
+                    article: articleInfo.article
+                }
+            })
     }
 
     render() {
