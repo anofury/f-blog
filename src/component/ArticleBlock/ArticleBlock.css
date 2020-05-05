@@ -84,8 +84,9 @@
 }
 
 .article-mark p {
-    font-size: .35rem;
+    font-size: .4rem;
     padding: .2rem 0;
+    word-break: break-all;
 }
 
 .article-mark ul {
@@ -94,6 +95,7 @@
 
 .article-mark li {
     padding: .1rem 0;
+    font-size: .35rem;
 }
 
 .article-mark li::before {
@@ -111,7 +113,7 @@
     background-color: rgb(29, 31, 33);
     padding: 2px 3px;
     border-radius: 4px;
-    /* color: rgb(168, 255, 96); */
+    color: #fff;
 }
 
 .article-mark .highlight code {
