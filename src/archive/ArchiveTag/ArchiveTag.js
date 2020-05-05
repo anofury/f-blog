@@ -30,7 +30,6 @@ export default class ArchiveTag extends BaseComponent {
     }
 
     onTapTagItem = () => {
-        console.log(this.props)
         let articleInfo = this.props
         OpenNewPage.show({
             title: articleInfo.from,

@@ -1,0 +1,33 @@
+.about-container {
+    padding: 0 .5rem;
+    font-size: .35rem;
+}
+
+.about-blog {
+    font-size: .4rem;
+    padding: .4rem 0;
+    color: #fff;
+}
+
+.about-me {
+    /* padding: .2rem 0; */
+}
+
+.me-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .2rem 0;
+    margin: .2rem 0;
+}
+
+.me-group>span:first-child{
+    font-weight: bold;
+    color: #ddd;
+}
+
+.about-something {
+    font-size: .4rem;
+    padding: .4rem 0;
+    color: #fff;
+}

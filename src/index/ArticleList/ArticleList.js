@@ -32,7 +32,10 @@ export default class ArticleList extends BaseComponent {
                 return true
             }
         })
-        this.setData({ displayFlags: newDisplayFlags })
+        this.setData({
+            displayFlags: newDisplayFlags,
+            loadingMore: false
+        })
     }
 
     loadMoreArticles = () => {

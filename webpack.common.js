@@ -50,7 +50,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './public/index.html'),
-            title: '小方の博客',
+            title: 'Found Blog',
             hash: true,
             inject: true,
             minify: {
