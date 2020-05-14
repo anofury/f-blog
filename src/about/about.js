@@ -20,16 +20,16 @@ export default class About extends BaseComponent {
                 <BlogHead title={AboutTitle} />
                 <BlogBody>
                     <div className='about-container'>
-                        <p className='about-blog tiny-line-bottom'>{AboutBlog}</p>
-                        <div className='about-me'>{
+                        <p className='about-blog '>{AboutBlog}</p>
+                        <div className='about-me tiny-border'>{
                             AboutList.map((aboutItem, idx) =>
-                                <p className='me-group' key={idx}>
+                                <p className='me-group tiny-line-bottom' key={idx}>
                                     <span>{aboutItem.title}</span>
                                     <span>{aboutItem.content}</span>
                                 </p>
                             )
                         }</div>
-                        <p className='about-something tiny-line-top'>{AboutSomething}</p>
+                        <p className='about-something'>{AboutSomething}</p>
                     </div>
                 </BlogBody>
             </div>

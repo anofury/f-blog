@@ -18,7 +18,7 @@ window.setting = {
         { title: '会写些什么', content: '代码、生活、思考' }
     ],
     AboutBlog: 'Hi，这里是 Found 的小小床铺。以后，要做个走路带风，说话漏气，眼神迷离，继续傻乐的嗨森靓仔。',
-    AboutSomething: '记录生活百态，做“美好”的忠实粉丝，给自己鼓掌，享受“成为”的过程。',
+    AboutSomething: '记录生活百态，做“美好”的忠实粉丝，发掘自我，享受“成为”的过程。',
     Slogan: 'Find\nSomething',
     NetError: '网络错误.',
     AlertBtn: '我知道了',
