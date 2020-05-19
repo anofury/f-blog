@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 configure({ enforceActions: 'always' })
 
 @observer
-export default class BaseComponent extends Component {
+class BaseComponent extends Component {
     constructor(props) {
         super(props)
     }
@@ -19,9 +19,18 @@ export default class BaseComponent extends Component {
 
     @action
     setData = (obj = {}, cb) => {
+        let that = this
         Object.getOwnPropertyNames(obj).forEach(key => {
-            this.data[key] = obj[key]
+            if (/[\.\[]/.test(key)) {
+                try { eval(`that.data.${key}=${obj[key]}`) }
+                catch (e) {
+                    that.data[key] = obj[key]
+                }
+            }
+            else that.data[key] = obj[key]
         })
         setTimeout(() => { cb && cb() }, 0)
     }
 }
+
+export { observer, BaseComponent }

@@ -1,5 +1,4 @@
-import BaseComponent from '../BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../BaseComponent'
 import BScroll from 'better-scroll'
 
 import './BlogBody.css'
@@ -9,6 +8,10 @@ export default class BlogBody extends BaseComponent {
     constructor(props) {
         super(props)
         this.BlogBodyId = `blogBody-${Math.floor(Math.random() * 100000)}`
+    }
+
+    swiperChangeHandle(current) {
+        !current && this.blogBodyBS.stop()
     }
 
     componentDidMount() {

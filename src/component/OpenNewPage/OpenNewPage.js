@@ -1,6 +1,5 @@
-import BaseComponent from '../BaseComponent'
+import { observer, BaseComponent } from '../BaseComponent'
 import ReactDOM from 'react-dom'
-import { observer } from 'mobx-react'
 import BScroll from 'better-scroll'
 import { cns, sleep } from '../../utils'
 

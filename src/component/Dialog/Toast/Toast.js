@@ -1,6 +1,5 @@
-import BaseComponent from '../../BaseComponent'
+import { observer, BaseComponent } from '../../BaseComponent'
 import ReactDOM from 'react-dom'
-import { observer } from 'mobx-react'
 import { cns, isType } from '../../../utils'
 import './Toast.css'
 

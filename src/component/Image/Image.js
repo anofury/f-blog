@@ -1,6 +1,5 @@
-import BaseComponent from '../BaseComponent'
-import { observer } from 'mobx-react'
-import { preLoadImg, cns, sleep } from '../../utils'
+import { observer, BaseComponent } from '../BaseComponent'
+import { preLoadImg, cns } from '../../utils'
 
 import './Image.css'
 

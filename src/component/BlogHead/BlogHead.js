@@ -1,5 +1,4 @@
-import BaseComponent from '../BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../BaseComponent'
 import Image from '../Image/Image'
 import { cns } from '../../utils'
 

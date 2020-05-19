@@ -1,5 +1,4 @@
-import BaseComponent from '../BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../BaseComponent'
 import PropTypes from "prop-types"
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter"
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism"

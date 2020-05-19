@@ -1,5 +1,4 @@
-import BaseComponent from '../component/BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../component/BaseComponent'
 import Swiper from '../swiper/swiper'
 import { HOC } from '../component/Hoc/Hoc'
 import ReactDOM from 'react-dom'

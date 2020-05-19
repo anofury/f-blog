@@ -1,5 +1,4 @@
-import BaseComponent from '../BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../BaseComponent'
 import { cns } from '../../utils'
 
 import './Loading.css'

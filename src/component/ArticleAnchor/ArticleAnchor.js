@@ -1,10 +1,6 @@
-import BaseComponent from '../BaseComponent'
-import createReactClass from 'create-react-class'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../BaseComponent'
 import { Alert } from '../Context'
 import PropTypes from "prop-types"
-import OpenNewPage from '../OpenNewPage/OpenNewPage'
-import { clipTextToBoard } from '../../utils'
 
 import './ArticleAnchor.css'
 

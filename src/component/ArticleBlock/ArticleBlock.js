@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
-import BaseComponent from '../BaseComponent'
+import { observer, BaseComponent } from '../BaseComponent'
 import PropTypes from 'prop-types'
-import { observer } from 'mobx-react'
 import ReactMarkdown from 'react-markdown'
 import Image from '../Image/Image'
 import Loading from '../Loading/Loading'

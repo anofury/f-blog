@@ -1,5 +1,4 @@
-import BaseComponent from '../../component/BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../../component/BaseComponent'
 import OpenNewPage from '../../component/OpenNewPage/OpenNewPage'
 import ArticleBlock from '../../component/ArticleBlock/ArticleBlock'
 import './ArchiveBlockList.css'

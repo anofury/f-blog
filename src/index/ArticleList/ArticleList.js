@@ -1,5 +1,4 @@
-import BaseComponent from '../../component/BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../../component/BaseComponent'
 import Loading from '../../component/Loading/Loading'
 import ArticleBlock from '../../component/ArticleBlock/ArticleBlock'
 import { sleep } from '../../utils'

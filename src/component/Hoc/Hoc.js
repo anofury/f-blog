@@ -1,7 +1,6 @@
 import { Component, createContext } from 'react'
-import { observer } from 'mobx-react'
+import { observer } from '../BaseComponent'
 import { Alert, Confirm, Toast } from '../Context'
-
 const BlogContext = createContext({})
 
 const HOC = WrappedComponent => {

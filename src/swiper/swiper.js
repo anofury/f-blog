@@ -1,5 +1,4 @@
-import BaseComponent from '../component/BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../component/BaseComponent'
 import { isType, cns } from '../utils'
 import './swiper.css'
 

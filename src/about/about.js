@@ -1,9 +1,7 @@
-import { lazy, Suspense } from 'react'
-import BaseComponent from '../component/BaseComponent'
-import { observer } from 'mobx-react'
-import Loading from '../component/Loading/Loading'
+import { observer, BaseComponent } from '../component/BaseComponent'
 import BlogHead from '../component/BlogHead/BlogHead'
 import BlogBody from '../component/BlogBody/BlogBody'
+import { cns } from '../utils'
 import { AboutTitle, AboutList, AboutBlog, AboutSomething } from 'setting'
 
 import './about.css'
@@ -20,16 +18,18 @@ export default class About extends BaseComponent {
                 <BlogHead title={AboutTitle} />
                 <BlogBody>
                     <div className='about-container'>
-                        <p className='about-blog '>{AboutBlog}</p>
+                        <div className='about-note'>
+                            <p className='about-blog tiny-border'>{AboutBlog}</p>
+                            <p className='about-blog tiny-border'>{AboutSomething}</p>
+                        </div>
                         <div className='about-me tiny-border'>{
                             AboutList.map((aboutItem, idx) =>
-                                <p className='me-group tiny-line-bottom' key={idx}>
+                                <p className={cns('me-group', { tinyLineBottom: idx < AboutList.length - 1 })} key={idx}>
                                     <span>{aboutItem.title}</span>
                                     <span>{aboutItem.content}</span>
                                 </p>
                             )
                         }</div>
-                        <p className='about-something'>{AboutSomething}</p>
                     </div>
                 </BlogBody>
             </div>

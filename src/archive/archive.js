@@ -1,5 +1,4 @@
-import BaseComponent from '../component/BaseComponent'
-import { observer } from 'mobx-react'
+import { observer, BaseComponent } from '../component/BaseComponent'
 import BlogHead from '../component/BlogHead/BlogHead'
 import BlogBody from '../component/BlogBody/BlogBody'
 import ArchiveBlock from './ArchiveBlock/ArchiveBlock'
