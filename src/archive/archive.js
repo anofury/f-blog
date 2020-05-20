@@ -44,7 +44,6 @@ export default class Archive extends BaseComponent {
                 this.archive.withDate[withDateKey].push(articleItem)
             else this.archive.withDate[withDateKey] = [articleItem]
         })
-        console.log(this.archive)
     }
 
     render() {

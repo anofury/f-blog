@@ -252,7 +252,7 @@ function getUrlSearchParam(key) {
     return result ? parseInt(result[1]) : 0
 }
 
-module.exports = {
+export {
     dateFormat, isType, cns, preLoadImg, clipTextToBoard,
     sleep, isAndroid, isIphone, isMobile, zfill, isEqual,
     deepCopy, getUrlSearchParam,

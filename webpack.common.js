@@ -66,13 +66,17 @@ module.exports = {
             chunks: 'all',
             version: new Date().getTime()
         }),
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, './public'),
-                to: path.resolve(__dirname, './page'),
-                ignore: '*/ori/*'
-            }
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './public'),
+                    to: path.resolve(__dirname, './page'),
+                    globOptions: {
+                        ignore: ['**/ori/**']
+                    }
+                }
+            ]
+        }),
         new webpack.DefinePlugin({
             Articles: JSON.stringify(getArticleInfo(articleSrc))
         })
