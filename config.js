@@ -4,7 +4,7 @@ window.setting = {
     ArticleSinglePageNum: 5,
     IndexTitle: 'Found Blog',
     ArchiveTitle: 'Archive',
-    AboutTitle: '关于神奇的 Found',
+    AboutTitle: '关于 Found',
     AboutList: [
         { title: '一句话', content: '简简单单，可可爱爱' },
         { title: '生年', content: '一九九七' },
@@ -14,7 +14,7 @@ window.setting = {
         { title: '会玩的游戏', content: '和平精英、守望先锋' },
         { title: '喜欢的食物', content: '汉堡、“广东”' },
         { title: '投喂姿势', content: 'Smile is enough :)' },
-        { title: '其他爱好', content: '样样通吃' },
+        { title: '其他爱好', content: '通吃' },
         { title: '会写些什么', content: '代码、生活、思考' }
     ],
     AboutBlog: 'Hi，这里是 Found 的小小博客。以后，要做个走路带风，说话漏气，眼神迷离，继续傻乐的嗨森靓仔。',

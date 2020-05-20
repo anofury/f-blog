@@ -37,6 +37,7 @@
 .confirm-wrapper>.content>span {
     text-align: left;
     display: inline-block;
+    word-break: break-all;
 }
 
 .confirm-wrapper .tiny-line-vertical::after {

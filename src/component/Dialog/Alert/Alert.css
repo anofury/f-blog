@@ -37,6 +37,7 @@
 .alert-wrapper>.content>span {
     text-align: left;
     display: inline-block;
+    word-break: break-all;
 }
 
 .alert-wrapper>.btn {

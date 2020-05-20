@@ -25,7 +25,7 @@ class OpenNewPage extends BaseComponent {
                     click: true,
                     swipeBounceTime: 200,
                     eventPassthrough: 'horizontal',
-                    bounceTime: 400,
+                    bounceTime: 300,
                     probeType: 3
                 })
         })
