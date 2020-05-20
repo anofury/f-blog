@@ -14,7 +14,7 @@ export default class Swiper extends BaseComponent {
         this.newPosition = 0
         this.moveStatus = {
             state: false,
-            speed: .25
+            speed: .2
         }
 
         // 传递给子组件调用的方法列表
