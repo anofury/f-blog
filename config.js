@@ -7,7 +7,7 @@ window.setting = {
     AboutTitle: '关于 Found',
     AboutList: [
         { title: '一句话', content: '简简单单，可可爱爱' },
-        { title: '生年', content: '一九九七' },
+        { title: '生日', content: '1997/09/02/农' },
         { title: '特征', content: '没有耳朵，没有眼睛，爱笑也会哭' },
         { title: '工作', content: '写点好玩有趣的东西' },
         { title: '最喜欢的歌手', content: '张国荣' },
