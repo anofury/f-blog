@@ -19,10 +19,10 @@ export default class About extends BaseComponent {
                 <BlogBody>
                     <div className='about-container'>
                         <div className='about-note'>
-                            <p className='about-blog tiny-border'>{AboutBlog}</p>
-                            <p className='about-blog tiny-border'>{AboutSomething}</p>
+                            <p className='about-blog'>{AboutBlog}</p>
+                            <p className='about-blog'>{AboutSomething}</p>
                         </div>
-                        <div className='about-me tiny-border'>{
+                        <div className='about-me'>{
                             AboutList.map((aboutItem, idx) =>
                                 <p className={cns('me-group', { tinyLineBottom: idx < AboutList.length - 1 })} key={idx}>
                                     <span>{aboutItem.title}</span>
