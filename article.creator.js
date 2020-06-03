@@ -1,12 +1,12 @@
 const fs = require('fs');
-const { dateFormat } = require('./src/utils')
 
 const argvs = process.argv
 if (argvs.length < 3) console.error('Error: \n请输入文件名.')
 else {
-    const title = argvs[2]
+    const title = argvs[2], now = new Date()
+    const date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
     const fileName = `./public/articles/${title}.md`
-    const mdHead = `---\ntitle: ${title}\ndescription: ${title}\ndate: ${dateFormat()}\ncategories: \ntags: \n---\n\n# ${title}\n`
+    const mdHead = `---\ntitle: ${title}\ndescription: ${title}\ndate: ${date}\ncategories: \ntags: \n---\n\n# ${title}\n`
 
     fs.exists(fileName, exists => {
         if (exists) {
