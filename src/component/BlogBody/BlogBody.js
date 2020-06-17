@@ -17,9 +17,9 @@ export default class BlogBody extends BaseComponent {
     componentDidMount() {
         this.blogBodyBS = new BScroll(this.refs[this.BlogBodyId], {
             click: true,
-            swipeBounceTime: 200,
+            // swipeBounceTime: 200,
             eventPassthrough: 'horizontal',
-            bounceTime: 300,
+            // bounceTime: 300,
             // bounce: false
         })
     }

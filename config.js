@@ -2,9 +2,9 @@ window.setting = {
     Articles: JSON.parse(Articles),
     ArticleMore: '<!-- more -->',
     ArticleSinglePageNum: 5,
-    IndexTitle: 'Found Blog',
-    ArchiveTitle: 'Archive',
-    AboutTitle: '关于 Found',
+    IndexTitle: '方のBlog',
+    ArchiveTitle: '方のArchive',
+    AboutTitle: '方のFound',
     AboutList: [
         { title: '一句话', content: '简简单单，可可爱爱' },
         { title: '生日', content: '1997/09/02/农' },
@@ -12,9 +12,8 @@ window.setting = {
         { title: '工作', content: '写点好玩有趣的东西' },
         { title: '最喜欢的歌手', content: '张国荣' },
         { title: '会玩的游戏', content: '和平精英、守望先锋' },
-        { title: '喜欢的食物', content: '汉堡、“广东”' },
+        { title: '喜欢的食物', content: '汉堡……' },
         { title: '投喂姿势', content: 'Smile is enough :)' },
-        { title: '其他爱好', content: '通吃' },
         { title: '会写些什么', content: '代码、生活、思考' }
     ],
     AboutBlog: 'Hi，这里是 Found 的小小博客。以后，要做个走路带风，说话漏气，眼神迷离，继续傻乐的嗨森靓仔。',

@@ -3,6 +3,7 @@ import Image from '../Image/Image'
 import { cns } from '../../utils'
 
 import './BlogHead.css'
+import Toast from '../Dialog/Toast/Toast'
 
 @observer
 export default class BlogHead extends BaseComponent {
@@ -19,12 +20,17 @@ export default class BlogHead extends BaseComponent {
         // }
     }
 
+    onTapAvatar = () => {
+        this.props.avatarClick && this.props.avatarClick('last')
+        Toast.show({ text: '哎呀呀呀~' })
+    }
+
     render() {
         const { src, title, slogan } = this.props
         return (
             <div className={cns('blog-head', { onlyTitle: !src && !slogan })} onClick={this.onTapBlogHead}>
                 {
-                    src && <div className='head-user'>
+                    src && <div className='head-user' onClick={this.onTapAvatar}>
                         <Image src={src} />
                     </div>
                 }

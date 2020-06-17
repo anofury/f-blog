@@ -24,7 +24,7 @@ export default class Index extends BaseComponent {
         const ArticleList = lazy(() => import('./ArticleList/ArticleList'))
         return (
             <div className='blog-index'>
-                <BlogHead src='./imgs/avatar.jpg' title={IndexTitle} slogan={Slogan} />
+                <BlogHead src='./imgs/avatar.jpg' title={IndexTitle} slogan={Slogan} avatarClick={this.props.moveToPosition} />
                 <BlogBody ref='blogBody'>
                     <Suspense fallback={<Loading />}>
                         <ArticleList />
