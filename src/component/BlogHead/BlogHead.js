@@ -12,17 +12,10 @@ export default class BlogHead extends BaseComponent {
     }
 
     onTapBlogHead = () => {
-        // if (!this.blogHeaderFirstTap) this.blogHeaderFirstTap = new Date()
-        // else {
-        //     if (new Date - this.blogHeaderFirstTap < 500)
-        //         this.pageContentBS && this.pageContentBS.scrollTo(0, 0, 500)
-        //     delete this.blogHeaderFirstTap
-        // }
     }
 
     onTapAvatar = () => {
-        this.props.avatarClick && this.props.avatarClick('last')
-        Toast.show({ text: '哎呀呀呀~' })
+        this.props.avatarClick && this.props.avatarClick()
     }
 
     render() {

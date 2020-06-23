@@ -3,6 +3,7 @@ import OpenNewPage from '../../component/OpenNewPage/OpenNewPage'
 import ArchiveBlockList from '../ArchiveBlockList/ArchiveBlockList'
 import './ArchiveTag.css'
 import { Toast } from '../../component/Context'
+import { ArchiveTagBG } from 'setting'
 
 @observer
 export default class ArchiveTag extends BaseComponent {
@@ -11,11 +12,7 @@ export default class ArchiveTag extends BaseComponent {
     }
 
     getRGBA = () => {
-        const colors = [
-            '#F73859', '#14FFEC', '#00E0FF', '#FF99FE', '#478BA2', '#DE5B6D',
-            '#E9765B', '#DA2864', '#16A5A3', '#33539E', '#C0392B', '#D35400', '#03A9F5'
-        ]
-        let color = colors[Math.floor(Math.random() * colors.length)]
+        let color = ArchiveTagBG[Math.floor(Math.random() * ArchiveTagBG.length)]
         let reg1 = /^#([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i
         let reg2 = /^#([0-9A-F])([0-9A-F])([0-9A-F])$/i
         let reg3 = /[0-9A-F]{2}/g, m

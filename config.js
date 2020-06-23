@@ -3,7 +3,12 @@ window.setting = {
     ArticleMore: '<!-- more -->',
     ArticleSinglePageNum: 5,
     IndexTitle: '方のBlog',
+    AvatarToast: ['😁', '😘', '😃', '😆', '😉', '😍', '😏', '😂', '😜'],
     ArchiveTitle: '方のArchive',
+    ArchiveTagBG: [
+        '#F73859', '#14FFEC', '#00E0FF', '#FF99FE', '#478BA2', '#DE5B6D',
+        '#E9765B', '#DA2864', '#16A5A3', '#33539E', '#C0392B', '#D35400', '#03A9F5'
+    ],
     AboutTitle: '方のFound',
     AboutList: [
         { title: '一句话', content: '简简单单，可可爱爱' },
@@ -18,7 +23,7 @@ window.setting = {
     ],
     AboutBlog: 'Hi，这里是 Found 的小小博客。以后，要做个走路带风，说话漏气，眼神迷离，继续傻乐的嗨森靓仔。',
     AboutSomething: '记录生活百态，品味万般世界，做美好的忠实粉丝；发掘自我，保持内心热烈，享受“成为”的过程。',
-    Slogan: 'Find\nSomething',
+    Slogan: 'Just\nSleep',
     NetError: '网络错误.',
     AlertBtn: '我知道了',
     ConfirmLeftBtn: '不要',
