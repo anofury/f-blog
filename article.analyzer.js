@@ -30,4 +30,16 @@ function getArticleInfo(dir) {
     return JSON.stringify(Articles);
 }
 
-module.exports = { getArticleInfo }
+function getBoxBackImgs(BackroundImgDir) {
+    const bgs = fs.readdirSync(BackroundImgDir.input);
+    let bgsObj = { list: [], dir: BackroundImgDir.output, length: bgs.length };
+    bgs.forEach(item => {
+        let stat = fs.lstatSync(BackroundImgDir.input + item);
+        if (stat.isFile()) {
+            bgsObj.list.push(item);
+        }
+    });
+    return JSON.stringify(bgsObj);
+}
+
+module.exports = { getArticleInfo, getBoxBackImgs }

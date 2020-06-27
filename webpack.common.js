@@ -3,8 +3,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const articleSrc = { input: './public/articles/', output: '/articles/' }
-const { getArticleInfo } = require('./article.analyzer');
+const articleSrc = { input: './public/articles/', output: '/articles/' };
+const boxBackImgSrc = { input: './public/imgs/bg/', output: './imgs/bg/' };
+const { getArticleInfo, getBoxBackImgs } = require('./article.analyzer');
 
 module.exports = {
     entry: {
@@ -78,7 +79,8 @@ module.exports = {
             ]
         }),
         new webpack.DefinePlugin({
-            Articles: JSON.stringify(getArticleInfo(articleSrc))
+            Articles: JSON.stringify(getArticleInfo(articleSrc)),
+            BGs: JSON.stringify(getBoxBackImgs(boxBackImgSrc))
         })
     ],
     resolve: {

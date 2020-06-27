@@ -200,20 +200,18 @@ canvas[resize] {
     content: "\e920";
 }
 
+.icon-fun {
+    position: relative;
+    bottom: .03rem;
+}
+
+.icon-fun:before {
+    content: "\e916";
+    font-size: .65rem;
+}
+
 .icon-user:before {
     content: "\e971";
-}
-
-.icon-qrcode:before {
-    content: "\e938";
-}
-
-.icon-telegram:before {
-    content: "\ea95";
-}
-
-.icon-github:before {
-    content: "\eab0";
 }
 
 .icon-date:before {

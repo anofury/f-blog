@@ -26,7 +26,9 @@ export default class Swiper extends BaseComponent {
                 Object.assign(total, {
                     [funcName]: this[funcName]
                 }), {}
-            )
+            ),
+            hideTabs: this.props.hideTabs,
+            showTabs: this.props.showTabs
         }
     }
 

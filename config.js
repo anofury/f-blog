@@ -2,6 +2,7 @@ window.setting = {
     Articles: JSON.parse(Articles),
     ArticleMore: '<!-- more -->',
     ArticleSinglePageNum: 5,
+    BGs: JSON.parse(BGs),
     IndexTitle: '方のBlog',
     AvatarToast: ['😁', '😘', '😃', '😆', '😉', '😍', '😏', '😂', '😜'],
     ArchiveTitle: '方のArchive',
@@ -36,6 +37,10 @@ window.setting = {
         {
             title: '归档',
             icon: 'icon-books'
+        },
+        {
+            title: '盒子',
+            icon: 'icon-fun'
         },
         {
             title: '关于',

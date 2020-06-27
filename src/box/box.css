@@ -1,0 +1,66 @@
+.blog-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+    opacity: 0;
+    animation: fade-in 5s linear forwards;
+}
+
+.blog-box img.init {
+    opacity: 1;
+    animation: none;
+}
+
+.box-countdown {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 9999;
+    color: #fff;
+    font-size: .5rem;
+    font-family: Lai-Hu;
+    background: url('./love.png') center center no-repeat;
+    background-size: 100% 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: heartbeat 1s ease-in-out infinite;
+    opacity: .6;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heartbeat {
+    from {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+    10% {
+        transform: scale(0.91);
+        animation-timing-function: ease-in;
+    }
+    17% {
+        transform: scale(0.98);
+        animation-timing-function: ease-out;
+    }
+    33% {
+        transform: scale(0.87);
+        animation-timing-function: ease-in;
+    }
+    45% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+}

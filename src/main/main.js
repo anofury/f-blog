@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom'
 import Index from '../index/index'
 import Archive from '../archive/archive'
 import About from '../about/about'
+import Box from '../box/box'
 
 import { sleep, cns, getUrlSearchParam } from '../utils'
 import { TabList } from 'setting'
@@ -18,6 +19,7 @@ class Main extends BaseComponent {
         super(props)
         this.initData({
             showPage: false,
+            showTabs: false,
             tabIndex: getUrlSearchParam('tab')
         })
     }
@@ -27,22 +29,32 @@ class Main extends BaseComponent {
         this.Swiper.moveToPosition(tabIndex)
     }
 
+    hideTabs = () => {
+        this.setData({ showTabs: false })
+    }
+
+    showTabs = () => {
+        this.setData({ showTabs: true })
+    }
+
     componentDidMount() {
         sleep(0).then(() => {
+            this.showTabs()
             this.setData({ showPage: true }, window.pageShow)
         })
     }
 
     render() {
-        const { showPage, tabIndex } = this.data
+        const { showPage, showTabs, tabIndex } = this.data
         return (
             <div className={cns('main-blog', { show: showPage })}>
                 <div className='main-body'>
                     <Swiper ref={e => { this.Swiper = e }} defaultPosition={this.getData.tabIndex}
-                        slideItem={[Index, Archive, About]} changeHandle={this.setTabId}
+                        slideItem={[Index, Archive, Box, About]} changeHandle={this.setTabId}
+                        hideTabs={this.hideTabs} showTabs={this.showTabs}
                     />
                 </div>
-                <div className='main-tabs'>{
+                <div className={cns('main-tabs', { hide: !showTabs })}>{
                     TabList.map((tab, idx) =>
                         <div key={idx} className='tabs-item' onClick={this.setTabId.bind(this, idx)}>
                             <div className={cns('tab-box', { current: tabIndex === idx })}>
