@@ -1,5 +1,7 @@
 import { observer, BaseComponent } from '../component/BaseComponent'
+import { Toast } from '../component/Context'
 import { preLoadImg, cns, sleep } from '../utils'
+import { OKFetch, fetchParam } from '../interface'
 import { BGs } from 'setting'
 
 import './box.css'
@@ -15,7 +17,25 @@ export default class Box extends BaseComponent {
         this.imgList = []
         this.config = {
             fadeInTime: 5,
-            loopTime: 10
+            loopTime: 10,
+            buttons: [
+                {
+                    title: '詞霸',
+                    api: fetchParam.ciba
+                },
+                {
+                    title: '壹个',
+                    api: fetchParam.yige
+                },
+                {
+                    title: '句讀',
+                    api: fetchParam.judou
+                },
+                {
+                    title: '壹言',
+                    api: fetchParam.yiyan
+                }
+            ]
         }
     }
 
@@ -35,7 +55,7 @@ export default class Box extends BaseComponent {
     }
 
     countDown = () => {
-        this.setData({ loopCountDown: this.config.loopTime })
+        this.setData({ loopCountDown: this.config.loopTime + this.config.fadeInTime })
         this.countDownTimer = setInterval(() => {
             const loopCountDown = this.getData.loopCountDown
             this.setData({ loopCountDown: loopCountDown - 1 })
@@ -55,6 +75,7 @@ export default class Box extends BaseComponent {
         const { fadeInTime, loopTime } = this.config
         this.clearTimer()
         this.countDown()
+        !init && this.showOath()
         this.timer = setTimeout(() => {
             preLoadImg(this.getRandomImg()).then(Img => {
                 let boxImg = Img[0]
@@ -74,6 +95,16 @@ export default class Box extends BaseComponent {
         }, init ? 0 : loopTime * 1000)
     }
 
+    showOath = () => {
+        OKFetch(fetchParam.oath).then(oath => {
+            Toast.show({ text: oath.data.content })
+        })
+    }
+
+    onTapBoxBtn = () => {
+
+    }
+
     componentWillMount() {
         this.loadRandomImg(true)
         window.addEventListener('visibilitychange', () => {
@@ -83,6 +114,9 @@ export default class Box extends BaseComponent {
                 this.loadRandomImg(!this.imgList.length)
             }
         })
+        OKFetch(fetchParam.yiyan).then(data => {
+            console.log(data)
+        })
     }
 
     render() {
@@ -90,6 +124,11 @@ export default class Box extends BaseComponent {
         return (
             <div className='blog-box' ref='box'>
                 <span className='box-countdown'>{loopCountDown}</span>
+                <div className='box-container'>{
+                    this.config.buttons.map((btn, index) =>
+                        <div key={index} onClick={this.onTapBoxBtn.bind(this, btn)}>{btn.title}</div>
+                    )
+                }</div>
             </div>
         )
     }

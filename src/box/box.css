@@ -16,8 +16,8 @@
 
 .box-countdown {
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    top: 0;
+    right: 0;
     width: 1.5rem;
     height: 1.5rem;
     z-index: 9999;
@@ -31,6 +31,37 @@
     align-items: center;
     animation: heartbeat 1s ease-in-out infinite;
     opacity: .6;
+}
+
+.box-container {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 80%;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.box-container>div {
+    color: #c0392b;
+    text-align: center;
+    font-size: .5rem;
+    font-family: Lai-Hu;
+    line-height: 2;
+    flex-basis: 46%;
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: .2rem;
+    margin: .2rem 0;
+    transition: all .2s ease;
+}
+
+.box-container>div:active {
+    background-color: rgba(255, 255, 255, .9);
+    transform: scale(.95);
+    transform-origin: center center;
 }
 
 @keyframes fade-in {

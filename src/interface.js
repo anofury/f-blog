@@ -46,13 +46,20 @@ const fetchParam = {
         param: {
             uuid: ''
         }
-    }
+    },
+    // 一言
+    yiyan: {
+        id: 'yiyan',
+        path: 'api.v1.daily.yiyan',
+        post: false,
+        param: {}
+    },
 }
 
 
 // 请求方法
-function OKFetch(param, extendParam = {}) {
-    const url = `${extendParam.dev ? DEVAPI : PROAPI}${param.path.replace(/\./g, '/')}/`
+function OKFetch(param, extendParam = {}, dev = false) {
+    const url = `${dev ? DEVAPI : PROAPI}${param.path.replace(/\./g, '/')}/`
     const bodyParam = Object.assign({}, param.param, extendParam)
     return new Promise((reslove, reject) => {
         if (param.post) {

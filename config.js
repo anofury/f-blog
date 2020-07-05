@@ -29,6 +29,8 @@ window.setting = {
     AlertBtn: '我知道了',
     ConfirmLeftBtn: '不要',
     ConfirmRightBtn: '好的',
+    DEVAPI: 'http://localhost:1314/',
+    PROAPI: 'http://47.100.166.251:1314/',
     TabList: [
         {
             title: '文章',
