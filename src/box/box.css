@@ -34,7 +34,7 @@
     opacity: .6;
 }
 
-.box-container {
+/* .box-container {
     position: absolute;
     top: 30%;
     left: 10%;
@@ -44,9 +44,9 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-}
+} */
 
-.box-container>div {
+/* .box-container>div {
     color: #c0392b;
     text-align: center;
     font-size: .5rem;
@@ -63,6 +63,24 @@
     background-color: rgba(255, 255, 255, .9);
     transform: scale(.95);
     transform-origin: center center;
+} */
+
+.box-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+.box-note {
+    position: absolute;
+    bottom: .2rem;
+    right: .3rem;
+    font-size: .35rem;
+    font-family: Lai-Hu;
+    color: #fff;
 }
 
 @keyframes fade-in {

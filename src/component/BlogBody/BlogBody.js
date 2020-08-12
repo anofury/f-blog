@@ -11,7 +11,7 @@ export default class BlogBody extends BaseComponent {
     }
 
     swiperChangeHandle(current) {
-        !current && this.blogBodyBS.stop()
+        // !current && this.blogBodyBS.stop()
     }
 
     componentDidMount() {

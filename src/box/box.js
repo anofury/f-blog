@@ -101,7 +101,9 @@ export default class Box extends BaseComponent {
     render() {
         return (
             <div className='blog-box' ref='box'>
-                <div className='box-container'></div>
+                <div className='box-container'>
+                    <div className='box-note'>waiting...</div>
+                </div>
             </div>
         )
     }
