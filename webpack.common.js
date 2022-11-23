@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const articleSrc = { input: './public/articles/', output: '/articles/' };
+const articleSrc = { input: './public/articles/', output: './articles/' };
 const boxBackImgSrc = { input: './public/imgs/bg/', output: './imgs/bg/' };
 const { getArticleInfo, getBoxBackImgs } = require('./article.analyzer');
 
